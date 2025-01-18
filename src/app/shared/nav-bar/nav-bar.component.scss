@@ -1,0 +1,9 @@
+.nav-bar-wrapper {
+  &__logo {
+    .logo-image {
+      background-image: url('../../../assets/images/ND_logo.png');
+      width: 100px;
+      height: auto;
+    }
+  }
+}
