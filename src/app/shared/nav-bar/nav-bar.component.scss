@@ -2,8 +2,11 @@
   &__logo {
     .logo-image {
       background-image: url('../../../assets/images/ND_logo.png');
-      width: 100px;
-      height: auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 200px;
+      height: 100px;
     }
   }
 }
