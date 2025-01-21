@@ -1,0 +1,52 @@
+//colors
+
+$elementsBgColor: #2d2e55;
+
+$basicBgColor: #fefefe;
+$hightLightColor: #ee428c;
+
+$contentColor: #04051f;
+$warningHard: #ec130c;
+$warningMid: #be140e;
+
+$isDoneBox: #49b800;
+$buttonColor: #4879c7;
+$borderColor: #3b3131;
+
+//hoverColors
+$buttonHoverColor: #3b82f6;
+$hoverLinkColor: #16aae1;
+$textHoverColor: #fefefe94;
+
+//table colors
+$tableHeaderBackground: #fefefe20;
+$tableBackground: #fefefe50;
+$tableOddBackground: #fefefe70;
+$tableBorder: #4879c7;
+
+//background
+$blur-background: rgba(25, 24, 24, 0.097);
+
+//font-size
+$xxs-fz: 0.85rem;
+$xs-fz: 1rem;
+$s-fz: 1.2rem;
+$m-fz: 1.5rem;
+$l-fz: 1.75rem;
+$x-fz: 2rem;
+
+//media-query
+$break-points: (
+  x-small: 480px,
+  small: 640px,
+  medium: 800px,
+  large: 1020px,
+  x-large: 1280px,
+);
+
+//others
+$transition: 0.4s;
+$navComponentHeight: 60px;
+$pagePadding: 40px;
+$primeBorderRadius: 3px;
+$ownRadius: 0.5rem;

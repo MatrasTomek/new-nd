@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
+  menuOpen: boolean = false
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen
+  }
+
 }

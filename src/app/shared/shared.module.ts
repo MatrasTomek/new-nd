@@ -5,13 +5,15 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
 
 
 
+
 @NgModule({
   declarations: [
 
   ],
   imports: [
     CommonModule,
-    NavBarModule
+    NavBarModule,
+
   ],
   exports: [NavBarModule]
 })

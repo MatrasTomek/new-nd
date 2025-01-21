@@ -1,11 +1,14 @@
-<div class="nav-bar-wrapper">
+<div class="nav-bar-wrapper flex">
   <div class="nav-bar-wrapper__logo">
-    <a >
+    <a routerLink="/">
       <div class="logo-image"></div>
     </a>
   </div>
-  <div class="nav-bar-wrapper__menu">
-    <ul>
+  <div class="nav-bar-wrapper__menu ">
+    <div class="menu-wrapper-burger" (click)="toggleMenu()">
+      <i [ngClass]="menuOpen ? 'pi pi-times' : 'pi pi-bars'"  style="font-size: 1.5rem"></i>
+    </div>
+    <ul class="menu-wrapper-items" [class.menu-wrapper-items__open]="menuOpen">
         <li class="ml-4">
           <a routerLink="/" routerLinkActive="router-link-active"
             >start</a
