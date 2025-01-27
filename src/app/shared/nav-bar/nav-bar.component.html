@@ -1,34 +1,28 @@
 <div class="nav-bar-wrapper flex">
-  <div class="nav-bar-wrapper__logo">
-    <a routerLink="/">
-      <div class="logo-image"></div>
-    </a>
-  </div>
-  <div class="nav-bar-wrapper__menu ">
-    <div class="menu-wrapper-burger" (click)="toggleMenu()">
-      <i [ngClass]="menuOpen ? 'pi pi-times' : 'pi pi-bars'"  style="font-size: 1.5rem"></i>
-    </div>
-    <ul class="menu-wrapper-items" [class.menu-wrapper-items__open]="menuOpen">
-        <li class="ml-4">
-          <a routerLink="/" routerLinkActive="router-link-active"
-            >start</a
-          >
-        </li>
-        <li class="ml-4">
-          <a routerLink="offer" routerLinkActive="router-link-active"
-            >oferta</a
-          >
-        </li>
-        <li class="ml-4">
-          <a routerLink="projects" routerLinkActive="router-link-active"
-            >projekty</a
-          >
-        </li>
-        <li class="ml-4 log-out" >
-            <a routerLink="contact" routerLinkActive="router-link-active"
-          >kontakt</a
-        >
-        </li>
-    </ul>
-  </div>
+	<div class="nav-bar-wrapper__logo">
+		<a routerLink="/">
+			<div class="logo-image"></div>
+		</a>
+	</div>
+	<div class="nav-bar-wrapper__menu">
+		<div class="menu-wrapper-burger" (click)="toggleMenu()">
+			<i [ngClass]="menuOpen ? 'pi pi-times' : 'pi pi-bars'" style="font-size: 1.5rem"></i>
+		</div>
+		<ul class="menu-wrapper-items" [class.menu-wrapper-items__open]="menuOpen">
+			<li class="ml-4">
+				<a routerLink="/" routerLinkActive="router-link-active" (click)="toggleMenu()" [routerLinkActiveOptions]="{ exact: true }"
+					>start</a
+				>
+			</li>
+			<li class="ml-4">
+				<a routerLink="offer" routerLinkActive="router-link-active" (click)="toggleMenu()">oferta</a>
+			</li>
+			<li class="ml-4">
+				<a routerLink="projects" routerLinkActive="router-link-active" (click)="toggleMenu()">projekty</a>
+			</li>
+			<li class="ml-4 log-out">
+				<a routerLink="contact" routerLinkActive="router-link-active" (click)="toggleMenu()">kontakt</a>
+			</li>
+		</ul>
+	</div>
 </div>

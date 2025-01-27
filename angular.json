@@ -8,7 +8,13 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        }
+        },
+        "@schematics/angular:application": {
+					"strict": true
+				},
+				"npm-schematics:component": {
+					"style": "scss"
+				}
       },
       "root": "",
       "sourceRoot": "src",
@@ -40,12 +46,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "4mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "8kb"
                 }
               ],
               "outputHashing": "all"
