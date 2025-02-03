@@ -4,6 +4,7 @@ $elementsBgColor: #2d2e55;
 
 $basicBgColor: #fefefe;
 $hightLightColor: #ee428c;
+$coldColor: #443bf6;
 
 $contentColor: #04051f;
 $warningHard: #ec130c;
@@ -24,6 +25,12 @@ $tableBackground: #fefefe50;
 $tableOddBackground: #fefefe70;
 $tableBorder: #4879c7;
 
+//gradient colors
+$gradientFirst: #3e3bf6;
+$gradientSecond: #ee428c;
+$gradientThird: #0b99e6;
+$gradientFourth: #da42ee;
+
 //background
 $blur-background: rgba(25, 24, 24, 0.097);
 
@@ -37,12 +44,21 @@ $x-fz: 2rem;
 
 //media-query
 $break-points: (
-  x-small: 480px,
-  small: 640px,
-  medium: 800px,
-  large: 1020px,
-  x-large: 1280px,
+	x-small: 480px,
+	small: 640px,
+	medium: 800px,
+	large: 1020px,
+	x-large: 1280px,
 );
+
+//paddings
+$title-padding: 1rem;
+$big-padding: 2rem;
+
+//margins
+$big-margin: 60px;
+$medium-margin: 40px;
+$small-margin: 20px;
 
 //others
 $transition: 0.4s;

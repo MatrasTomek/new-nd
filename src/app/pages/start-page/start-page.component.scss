@@ -1,0 +1,51 @@
+@import '../../../styles.scss';
+
+.start-page-wrapper {
+	&__title {
+		width: 70%;
+		border: 2px solid $gradientFirst;
+		border-radius: $ownRadius;
+		padding: $title-padding;
+
+		h1 {
+			background: linear-gradient(to right, $gradientFirst, $gradientSecond, $gradientThird, $gradientFourth);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-size: $m-fz;
+		}
+	}
+
+	&__sub-title {
+		text-align: right;
+
+		h3 {
+			color: $coldColor;
+		}
+	}
+
+	&__info {
+		background-image: url('../../../assets/images//start-page/glass-sphere-1746506_1280.jpg');
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+		text-align: center;
+		width: 100vw;
+		margin-left: -8.8%;
+		height: 400px;
+		display: flex;
+		align-items: flex-end;
+
+		.shaddow {
+			background-color: rgba(1, 1, 1, 0.5);
+			padding: $big-padding;
+		}
+
+		p {
+			font-size: $xxs-fz;
+			font-weight: 700;
+			line-height: 2;
+			color: $basicBgColor;
+			letter-spacing: 1.2px;
+		}
+	}
+}
