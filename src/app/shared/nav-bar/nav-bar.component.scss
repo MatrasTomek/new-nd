@@ -1,6 +1,12 @@
 @import '../../../styles.scss';
 
 .nav-bar-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: $basicBgColor;
+
 	&__logo {
 		.logo-image {
 			background-image: url('../../../assets/images/ND_logo.png');
@@ -14,7 +20,7 @@
 
 	&__menu {
 		.menu-wrapper-burger {
-			position: fixed;
+			position: absolute;
 			right: 50px;
 			top: 40px;
 			z-index: 2;
