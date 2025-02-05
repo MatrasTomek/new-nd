@@ -1,5 +1,5 @@
-@import './variables';
-@import './reset';
-@import './mixins';
-@import './fonts';
-@import './page';
+@forward './variables';
+@forward './reset';
+@forward './mixins';
+@forward './fonts';
+@forward './page';
