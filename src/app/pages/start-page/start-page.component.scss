@@ -67,6 +67,7 @@
 			h4 {
 				text-align: right;
 				margin-bottom: 0.5rem;
+				font-family: 'Fira';
 			}
 
 			p {
@@ -103,13 +104,48 @@
 		}
 
 		&__item {
+			border: 1px solid #c4c4cb;
+			border-radius: 0.75rem;
+
 			p {
 				font-size: $xxs-fz * 1.1;
+				font-family: 'Fira';
+				flex-basis: 50%;
+				padding: 1rem;
+
 				span {
 					font-size: $xxs-fz * 1.2;
 					font-weight: 700;
 					text-decoration: underline;
 					color: $coldColor;
+				}
+			}
+
+			.trust-image {
+				width: 50%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+
+				&.img-1 {
+					background-image: url('../../../assets/images/start-page/exp_1280.jpg');
+					border-top-right-radius: 0.75rem;
+					border-bottom-right-radius: 0.75rem;
+				}
+				&.img-2 {
+					background-image: url('../../../assets/images/start-page/one_1280.jpg');
+					border-top-left-radius: 0.75rem;
+					border-bottom-left-radius: 0.75rem;
+				}
+				&.img-3 {
+					background-image: url('../../../assets/images/start-page/qual_1280.jpg');
+					border-top-right-radius: 0.75rem;
+					border-bottom-right-radius: 0.75rem;
+				}
+				&.img-4 {
+					background-image: url('../../../assets/images/start-page/tech_1280.jpg');
+					border-top-left-radius: 0.75rem;
+					border-bottom-left-radius: 0.75rem;
 				}
 			}
 			margin-bottom: 1rem;
