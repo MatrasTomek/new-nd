@@ -1,0 +1,63 @@
+@use '../../../styles.scss' as *;
+@use 'sass:map';
+
+.page-footer-wrapper {
+	width: 100%;
+	justify-content: space-between;
+	border-top: 1px solid $borderColor;
+
+	&__links {
+		padding: 1rem;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: no-wrap;
+
+		li {
+			list-style: none;
+			margin-bottom: 0.5rem;
+			margin-left: 1rem;
+			a {
+				text-decoration: none;
+				color: $borderColor;
+				font-family: 'Fira';
+				font-size: $xxs-fz;
+			}
+		}
+	}
+
+	&__media {
+		padding: 1rem;
+
+		i {
+			margin-left: 1rem;
+		}
+	}
+
+	@media screen and (min-width: map.get($break-points, large)) {
+		&__links {
+			padding: 1rem 3rem;
+			li {
+				a {
+					font-size: $xs-fz;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		&__media {
+			padding: 1rem 3rem;
+
+			i {
+				font-size: $m-fz;
+				cursor: pointer;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
