@@ -3,7 +3,8 @@
 
 .start-page-wrapper {
 	&__title {
-		width: 70%;
+		width: 60%;
+		margin-left: 7.5%;
 		border: 2px solid $gradientFirst;
 		border-radius: $ownRadius;
 		padding: $title-padding;
@@ -17,9 +18,13 @@
 	}
 
 	&__sub-title {
-		text-align: right;
+		display: flex;
+		justify-content: flex-end;
+		margin-right: 7.5%;
 
 		h3 {
+			display: inline-block;
+			width: 50%;
 			color: $coldColor;
 		}
 	}
@@ -30,8 +35,7 @@
 		background-size: cover;
 		background-attachment: fixed;
 		text-align: center;
-		width: 99vw;
-		margin-left: -8.7%;
+		margin: 0 auto;
 		height: 400px;
 		display: flex;
 		align-items: flex-end;
@@ -54,6 +58,8 @@
 	}
 
 	&__offer {
+		margin: 0 7.5%;
+
 		.offer {
 			&__item {
 				background: linear-gradient(to top, $threeDFirst, $threeDSecond);
@@ -82,8 +88,6 @@
 			background-position: center;
 			background-size: cover;
 			text-align: center;
-			width: 99vw;
-			margin-left: -8.7%;
 			height: 100px;
 			border-radius: $ownRadius;
 
@@ -101,9 +105,12 @@
 		}
 
 		.trust {
+			margin: 2rem 7.5%;
+
 			&__item {
 				border: 1px solid #c4c4cb;
 				border-radius: 0.75rem;
+				margin-bottom: 1rem;
 
 				p {
 					font-size: $xxs-fz * 1.1;
@@ -170,7 +177,7 @@
 			height: 600px;
 
 			p {
-				font-size: $s-fz;
+				font-size: $l-fz;
 			}
 		}
 
@@ -212,6 +219,7 @@
 
 				&__item {
 					flex-basis: 49%;
+					margin-bottom: 0;
 
 					p {
 						font-size: $xs-fz * 1.1;
