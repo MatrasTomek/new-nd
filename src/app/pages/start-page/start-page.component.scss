@@ -62,21 +62,32 @@
 
 		.offer {
 			&__item {
-				background: linear-gradient(to top, $threeDFirst, $threeDSecond);
-				border: 1px solid #b0b0b0;
+				// border: 1px solid #b0b0b0;
 				border-radius: $ownRadius;
-				padding: 10px 20px 15px 20px;
+
 				box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #ffffff;
 				transition: all 0.2s ease-in-out;
 
-				h4 {
-					text-align: right;
-					margin-bottom: 0.5rem;
-					font-family: 'Fira';
+				video {
+					border-top-right-radius: $ownRadius;
+					border-top-left-radius: $ownRadius;
 				}
 
-				p {
-					font-size: $xxs-fz * 1.1;
+				.content {
+					padding: 10px 20px 15px 20px;
+					background: linear-gradient(to top, $threeDFirst, $threeDSecond);
+					border-bottom-right-radius: $ownRadius;
+					border-bottom-left-radius: $ownRadius;
+
+					h4 {
+						text-align: right;
+						margin-bottom: 0.5rem;
+						font-family: 'Fira';
+					}
+
+					p {
+						font-size: $xxs-fz * 1.1;
+					}
 				}
 			}
 		}
@@ -235,6 +246,7 @@
 						}
 						&.img-2 {
 							background-image: url('../../../assets/images/start-page/one_1280.jpg');
+							background-position-y: -100px;
 						}
 						&.img-3 {
 							background-image: url('../../../assets/images/start-page/qual_1280.jpg');
