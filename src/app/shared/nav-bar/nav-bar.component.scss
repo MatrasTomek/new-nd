@@ -77,6 +77,14 @@
 				li {
 					margin-bottom: 0 !important;
 					margin-right: 100px;
+
+					a {
+						transition: 0.3s;
+					}
+
+					&:hover a:not(.router-link-active) {
+						color: $gradientFourth;
+					}
 				}
 			}
 		}
@@ -84,5 +92,5 @@
 }
 
 .router-link-active {
-	border-bottom: 3px solid $hightLightColor;
+	border-bottom: 3px solid $gradientFourth;
 }

@@ -39,6 +39,7 @@
 			li {
 				a {
 					font-size: $xs-fz;
+					transition: 0.3s;
 
 					&:hover {
 						text-decoration: underline;
@@ -53,6 +54,7 @@
 			i {
 				font-size: $m-fz;
 				cursor: pointer;
+				transition: 0.3s;
 
 				&:hover {
 					text-decoration: underline;
