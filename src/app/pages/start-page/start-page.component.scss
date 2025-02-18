@@ -62,9 +62,7 @@
 
 		.offer {
 			&__item {
-				// border: 1px solid #b0b0b0;
 				border-radius: $ownRadius;
-
 				box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #ffffff;
 				transition: all 0.2s ease-in-out;
 
@@ -78,6 +76,10 @@
 					background: linear-gradient(to top, $threeDFirst, $threeDSecond);
 					border-bottom-right-radius: $ownRadius;
 					border-bottom-left-radius: $ownRadius;
+					height: 190px;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
 
 					h4 {
 						text-align: right;
@@ -87,6 +89,16 @@
 
 					p {
 						font-size: $xxs-fz * 1.1;
+					}
+
+					a {
+						display: inline-block;
+						width: 100%;
+						text-align: right;
+						color: $gradientFirst;
+						transition: 0.3s;
+						font-size: $xxs-fz;
+						font-weight: 700;
 					}
 				}
 			}
@@ -139,6 +151,8 @@
 
 				.trust-image {
 					width: 50%;
+					position: relative;
+					overflow: hidden;
 					background-repeat: no-repeat;
 					background-size: cover;
 					background-position: center;
@@ -163,6 +177,27 @@
 						border-top-left-radius: 0.75rem;
 						border-bottom-left-radius: 0.75rem;
 					}
+				}
+
+				.trust-image::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: -150%;
+					width: 100%;
+					height: 100%;
+					background: linear-gradient(
+						120deg,
+						rgba(255, 255, 255, 0) 20%,
+						rgba(255, 255, 255, 0.8) 50%,
+						rgba(255, 255, 255, 0) 80%
+					);
+					transform: skewX(-25deg);
+					transition: left 0.5s ease-out;
+				}
+
+				.shine-effect::after {
+					left: 150%;
 				}
 			}
 		}
@@ -199,6 +234,8 @@
 
 			.offer {
 				display: inline-flex;
+				cursor: pointer;
+				transition: 0.3s;
 
 				&__item {
 					width: 60%;
@@ -210,6 +247,14 @@
 
 					p {
 						font-size: $s-fz * 1.1;
+					}
+
+					&:hover {
+						transform: scale(1.02);
+
+						&:hover a {
+							color: $gradientFourth;
+						}
 					}
 				}
 			}
