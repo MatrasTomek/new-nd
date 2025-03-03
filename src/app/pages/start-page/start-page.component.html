@@ -1,9 +1,9 @@
 <div class="page-wrapper">
 	<div class="start-page-wrapper">
-		<div class="start-page-wrapper__title">
+		<div class="start-page-wrapper__title" [class.float-title]="floatedTitle$ | async">
 			<h1>Profesjonalne Rozwiązania Webowe dla Twojego Biznesu</h1>
 		</div>
-		<div class="start-page-wrapper__sub-title mt-6">
+		<div class="start-page-wrapper__sub-title mt-6" [class.float-sub-title]="floatedSubTitle$ | async">
 			<h3>Tworzymy Nowoczesne i Skuteczne Strony Internetowe</h3>
 		</div>
 		<div class="start-page-wrapper__info mt-6">

@@ -5,6 +5,7 @@
 	width: 100%;
 	justify-content: space-between;
 	border-top: 1px solid $borderColor;
+	flex-wrap: wrap;
 
 	&__links {
 		padding: 1rem;

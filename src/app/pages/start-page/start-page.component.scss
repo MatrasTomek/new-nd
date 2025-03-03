@@ -4,10 +4,11 @@
 .start-page-wrapper {
 	&__title {
 		width: 60%;
-		margin-left: 7.5%;
+		margin-left: -100%;
 		border: 2px solid $gradientFirst;
 		border-radius: $ownRadius;
 		padding: $title-padding;
+		transition: 1s;
 
 		h1 {
 			background: linear-gradient(to right, $gradientFirst, $gradientSecond, $gradientThird, $gradientFourth);
@@ -15,17 +16,26 @@
 			-webkit-text-fill-color: transparent;
 			font-size: $m-fz;
 		}
+
+		&.float-title {
+			margin-left: 7.5% !important;
+		}
 	}
 
 	&__sub-title {
 		display: flex;
 		justify-content: flex-end;
-		margin-right: 7.5%;
+		margin-right: -100%;
+		transition: 1s;
 
 		h3 {
 			display: inline-block;
 			width: 50%;
 			color: $coldColor;
+		}
+
+		&.float-sub-title {
+			margin-right: 7.5% !important;
 		}
 	}
 
