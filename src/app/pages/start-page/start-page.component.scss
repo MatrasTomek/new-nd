@@ -75,6 +75,8 @@
 				border-radius: $ownRadius;
 				box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #ffffff;
 				transition: all 0.2s ease-in-out;
+				max-width: 420px;
+				margin: auto;
 
 				video {
 					border-top-right-radius: $ownRadius;
@@ -257,6 +259,9 @@
 
 					p {
 						font-size: $s-fz * 1.1;
+					}
+					.content {
+						height: 290px;
 					}
 
 					&:hover {

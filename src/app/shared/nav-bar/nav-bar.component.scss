@@ -38,6 +38,8 @@
 			display: flex;
 			flex-direction: column;
 			align-items: start;
+			transition: 0.75s;
+			padding-top: 40px;
 
 			li {
 				margin-bottom: 40px;
@@ -71,8 +73,10 @@
 				top: unset;
 				flex-direction: row;
 				margin: 0;
+				padding-top: 0;
 				margin-right: 60px;
 				height: auto;
+				align-items: center;
 
 				li {
 					margin-bottom: 0 !important;

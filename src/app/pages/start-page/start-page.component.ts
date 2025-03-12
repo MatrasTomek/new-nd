@@ -22,7 +22,7 @@ export class StartPageComponent implements AfterViewInit, OnDestroy {
 
 		setTimeout(() => {
 			this.floatedTitle$.next(true);
-		}, 1200);
+		}, 750);
 
 		setTimeout(() => {
 			this.floatedSubTitle$.next(true);
