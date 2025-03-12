@@ -2,6 +2,10 @@
 @use 'sass:map';
 
 .project-page-wrapper {
+	&.scroll-off {
+		height: 50vh;
+	}
+
 	&__title {
 		width: 60%;
 		margin: 0 auto;
@@ -52,12 +56,10 @@
 					display: block;
 				}
 
-				&__mobile {
-				}
-
 				&__desktop {
 					display: none !important;
 				}
+
 				.item-description {
 					position: absolute;
 					bottom: 0;
@@ -101,6 +103,7 @@
 
 			&__item {
 				width: 550px;
+				cursor: pointer;
 
 				.item-pic {
 					img {
@@ -116,6 +119,80 @@
 					.item-description {
 						font-size: $xs-fz;
 					}
+				}
+			}
+		}
+	}
+}
+
+.item-overview {
+	position: fixed;
+	top: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 98vw;
+	height: calc(100vh - 100px);
+	background-color: $blur-blue-background;
+	border-radius: $ownRadius;
+
+	.item-close {
+		position: absolute;
+		top: 1rem;
+		right: 2rem;
+		z-index: 1;
+		color: $basicBgColor;
+		background-color: $borderColor;
+		padding: 0.5rem;
+		border-radius: 50%;
+	}
+
+	&__item {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: $ownRadius;
+		width: 60%;
+		transition: 0.6s;
+
+		.item-pic {
+			width: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				width: 100%;
+				max-width: 350px;
+				height: calc(100vh - 100px - 65px - 21px);
+				display: block;
+			}
+
+			&__desktop {
+				display: none !important;
+			}
+		}
+	}
+
+	@media screen and (min-width: map.get($break-points, large)) {
+		.item-close {
+			cursor: pointer;
+		}
+
+		&__item {
+			width: 80%;
+
+			.item-pic {
+				img {
+					max-width: 100%;
+				}
+
+				&__mobile {
+					display: none !important;
+				}
+
+				&__desktop {
+					display: block !important;
 				}
 			}
 		}

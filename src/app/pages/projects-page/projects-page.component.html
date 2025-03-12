@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-	<div class="project-page-wrapper">
+	<div class="project-page-wrapper" [class.scroll-off]="itemSelected$ | async">
 		<div class="project-page-wrapper__title">
 			<h1>Nasze Projekty</h1>
 		</div>
@@ -11,13 +11,22 @@
 			</h3>
 		</div>
 		<div class="project-page-wrapper__items project-items">
-			<div *ngFor="let project of projects" class="project-items__item">
+			<div *ngFor="let project of projects" class="project-items__item" (click)="selectItem(project)">
 				<div class="item-pic">
 					<img [src]="project.mobilePic" alt="{{ project.name }} Mobile" class="item-pic__mobile" />
 					<img [src]="project.desktopPic" alt="{{ project.name }} Desktop" class="item-pic__desktop" />
 					<span class="item-description">{{ project.description }}</span>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="itemSelected$ | async as selectedItem" class="item-overview">
+	<div class="pi pi-times item-close" (click)="itemSelected$.next(null)"></div>
+	<div class="item-overview__item">
+		<div class="item-pic">
+			<img [src]="selectedItem.mobilePic" alt="{{ selectedItem.name }} Mobile" class="item-pic__mobile" />
+			<img [src]="selectedItem.desktopPic" alt="{{ selectedItem.name }} Desktop" class="item-pic__desktop" />
 		</div>
 	</div>
 </div>
