@@ -1,1 +1,23 @@
-<p>projects-page works!</p>
+<div class="page-wrapper">
+	<div class="project-page-wrapper">
+		<div class="project-page-wrapper__title">
+			<h1>Nasze Projekty</h1>
+		</div>
+		<div class="project-page-wrapper__sub-title mt-4">
+			<h3>
+				W naszym portfolio znajdziesz projekty, które stworzyliśmy dla naszych klientów. Każdy z nich to unikalne rozwiązanie, które
+				pomaga firmom rozwijać się w internecie. Nasze projekty łączą nowoczesny design z najnowszymi technologiami, aby zapewnić
+				najwyższą jakość i funkcjonalność.
+			</h3>
+		</div>
+		<div class="project-page-wrapper__items project-items">
+			<div *ngFor="let project of projects" class="project-items__item">
+				<div class="item-pic">
+					<img [src]="project.mobilePic" alt="{{ project.name }} Mobile" class="item-pic__mobile" />
+					<img [src]="project.desktopPic" alt="{{ project.name }} Desktop" class="item-pic__desktop" />
+					<span class="item-description">{{ project.description }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

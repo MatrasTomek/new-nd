@@ -1,0 +1,123 @@
+@use '../../../styles.scss' as *;
+@use 'sass:map';
+
+.project-page-wrapper {
+	&__title {
+		width: 60%;
+		margin: 0 auto;
+
+		h1 {
+			background: linear-gradient(to right, $gradientFirst, $gradientSecond, $gradientThird, $gradientFourth);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-size: $m-fz;
+			text-align: center;
+		}
+	}
+
+	&__sub-title {
+		width: 90%;
+		margin: 0 auto;
+
+		h3 {
+			display: inline-block;
+			color: $coldColor;
+			text-align: center;
+			font-size: $xxs-fz;
+			font-family: 'Fira', sans-serif;
+		}
+	}
+
+	&__items {
+		width: 90%;
+		margin: 2rem auto;
+	}
+
+	.project-items {
+		display: flex;
+		flex-direction: column;
+
+		&__item {
+			margin: 1.5rem auto;
+			width: 300px;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.65);
+			border-radius: $ownRadius;
+			position: relative;
+
+			.item-pic {
+				img {
+					border-radius: $ownRadius;
+					max-width: 100%;
+					height: auto;
+					display: block;
+				}
+
+				&__mobile {
+				}
+
+				&__desktop {
+					display: none !important;
+				}
+				.item-description {
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					background-color: $blur-blue-background;
+					color: $basicBgColor;
+					padding: 1rem;
+					text-align: center;
+					border-bottom-right-radius: $ownRadius;
+					border-bottom-left-radius: $ownRadius;
+				}
+			}
+		}
+	}
+
+	@media screen and (min-width: map.get($break-points, large)) {
+		&__title {
+			h1 {
+				font-size: $x-fz;
+			}
+		}
+
+		&__sub-title {
+			width: 45%;
+			margin: 0 auto 0 3rem;
+
+			h3 {
+				font-size: $xs-fz * 1.1;
+				text-align: left;
+			}
+		}
+
+		&__items {
+			width: 90%;
+			margin: 2rem auto;
+		}
+
+		.project-items {
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			&__item {
+				width: 550px;
+
+				.item-pic {
+					img {
+					}
+
+					&__mobile {
+						display: none !important;
+					}
+
+					&__desktop {
+						display: block !important;
+					}
+					.item-description {
+						font-size: $xs-fz;
+					}
+				}
+			}
+		}
+	}
+}
