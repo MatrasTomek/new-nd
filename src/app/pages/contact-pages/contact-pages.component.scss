@@ -1,0 +1,337 @@
+@use '../../../styles.scss' as *;
+@use 'sass:map';
+
+.contact-page-wrapper {
+	width: 100%;
+	overflow: hidden;
+
+	&__background {
+		width: 100%;
+		min-height: calc(100vh - 65px);
+		background-image: url('../../../assets/images/contact-page/harbour-city-3928590_640.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		padding: 2rem 0; // Dodanie paddingu góra/dół
+	}
+
+	&__form {
+		width: 85%;
+		background: $blur-white-background;
+		backdrop-filter: blur(10px);
+		padding: $title-padding;
+		border-radius: $ownRadius;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+		.contact-form {
+			&__title {
+				color: $contentColor;
+				font-size: $l-fz;
+				font-weight: 700;
+				margin-bottom: $big-padding;
+				text-align: center;
+				font-family: 'Kumbh Sans', sans-serif;
+			}
+
+			&__form {
+				display: flex;
+				flex-direction: column;
+				gap: 1.5rem;
+
+				.input-group {
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+
+					label {
+						color: $contentColor;
+						font-size: $s-fz;
+						font-weight: 600;
+						margin-bottom: 0.25rem;
+					}
+
+					input,
+					select,
+					textarea {
+						padding: 0.75rem 1rem;
+						border: 2px solid transparent;
+						border-radius: $primeBorderRadius;
+						background-color: rgba(255, 255, 255, 0.9);
+						font-size: $xs-fz;
+						font-family: 'Roboto', sans-serif;
+						color: $contentColor;
+						transition: all $transition;
+						outline: none;
+
+						&::placeholder {
+							color: rgba($contentColor, 0.6);
+						}
+
+						&:focus {
+							border-color: $coldColor;
+							background-color: rgba(255, 255, 255, 0.95);
+							box-shadow: 0 0 0 3px rgba($coldColor, 0.1);
+						}
+
+						&.error {
+							border-color: $warningHard;
+							background-color: rgba($warningHard, 0.05);
+						}
+					}
+
+					select {
+						cursor: pointer;
+
+						option {
+							background-color: white;
+							color: $contentColor;
+						}
+					}
+
+					textarea {
+						resize: vertical;
+						min-height: 100px;
+						max-height: 200px;
+					}
+
+					&.checkbox-group {
+						.checkbox-label {
+							display: flex;
+							align-items: flex-start;
+							gap: 0.75rem;
+							cursor: pointer;
+							font-size: $xs-fz;
+							line-height: 1.5;
+							color: $contentColor;
+
+							input[type='checkbox'] {
+								width: 18px;
+								height: 18px;
+								margin: 0;
+								padding: 0;
+								opacity: 0;
+								position: absolute;
+								cursor: pointer;
+
+								&:checked + .checkmark {
+									background-color: $coldColor;
+									border-color: $coldColor;
+
+									&::after {
+										display: block;
+									}
+								}
+
+								&:focus + .checkmark {
+									box-shadow: 0 0 0 3px rgba($coldColor, 0.1);
+								}
+							}
+
+							.checkmark {
+								width: 18px;
+								height: 18px;
+								background-color: rgba(255, 255, 255, 0.9);
+								border: 2px solid #ddd;
+								border-radius: $primeBorderRadius;
+								position: relative;
+								transition: all $transition;
+								flex-shrink: 0;
+								margin-top: 2px;
+
+								&::after {
+									content: '';
+									position: absolute;
+									display: none;
+									left: 4px;
+									top: 1px;
+									width: 6px;
+									height: 10px;
+									border: solid white;
+									border-width: 0 2px 2px 0;
+									transform: rotate(45deg);
+								}
+							}
+
+							a {
+								color: $coldColor;
+								text-decoration: underline;
+								transition: color $transition;
+
+								&:hover {
+									color: $hoverLinkColor;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// 		@media screen and (min-width: map.get($break-points, medium)) {
+	// 			width: 80%;
+	// 			padding: 2.5rem;
+	// 			max-width: 800px;
+	// 		}
+
+	// 		@media screen and (min-width: map.get($break-points, large)) {
+	// 			max-width: 900px;
+	// 		}
+	// 	}
+
+	&__info {
+		// Miejsce na dodatkowe informacje kontaktowe w przyszłości
+		display: none;
+	}
+
+	// 	@media screen and (min-width: map.get($break-points, large)) {
+	// 		&__background {
+	// 			background-image: url('../../../assets/images/contact-page/harbour-city-3928590_1920.jpg');
+	// 			padding: 3rem 0; // Więcej paddingu na dużych ekranach
+	// 		}
+
+	// 		&__form {
+	// 			// Na dużych ekranach pozwól na naturalną wysokość formularza
+	// 			// ale zachowaj centrowanie jeśli formularz jest mniejszy niż viewport
+	// 			position: relative;
+	// 			top: 0;
+	// 			left: 0;
+	// 			transform: none;
+	// 			margin: 2rem auto;
+	// 			min-height: calc(100vh - 65px - 6rem); // Wysokość minus padding
+	// 			display: flex;
+	// 			flex-direction: column;
+	// 			justify-content: center;
+	// 		}
+	// 	}
+	// }
+
+	// 	.error-message {
+	// 		color: $warningHard;
+	// 		font-size: $xxs-fz;
+	// 		margin-top: 0.25rem;
+	// 		font-weight: 500;
+	// 		display: block;
+	// 	}
+
+	// 	.submit-btn {
+	// 		background: linear-gradient(135deg, $gradientFirst, $gradientSecond);
+	// 		color: white;
+	// 		border: none;
+	// 		padding: 1rem 2rem;
+	// 		border-radius: $ownRadius;
+	// 		font-size: $s-fz;
+	// 		font-weight: 600;
+	// 		cursor: pointer;
+	// 		transition: all $transition;
+	// 		margin-top: 1rem;
+	// 		font-family: 'Kumbh Sans', sans-serif;
+	// 		position: relative;
+	// 		overflow: hidden;
+
+	// 		&:hover:not(:disabled) {
+	// 			transform: translateY(-2px);
+	// 			box-shadow: 0 8px 25px rgba($gradientFirst, 0.3);
+	// 		}
+
+	// 		&:active:not(:disabled) {
+	// 			transform: translateY(0);
+	// 		}
+
+	// 		&:disabled {
+	// 			opacity: 0.6;
+	// 			cursor: not-allowed;
+	// 			transform: none;
+	// 		}
+
+	// 		&::before {
+	// 			content: '';
+	// 			position: absolute;
+	// 			top: 0;
+	// 			left: -100%;
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+	// 			transition: left 0.5s;
+	// 		}
+
+	// 		&:hover:not(:disabled)::before {
+	// 			left: 100%;
+	// 		}
+	// 	}
+
+	// 	.success-message {
+	// 		background-color: rgba($isDoneBox, 0.1);
+	// 		border: 2px solid $isDoneBox;
+	// 		color: darken($isDoneBox, 20%);
+	// 		padding: 1rem;
+	// 		border-radius: $primeBorderRadius;
+	// 		text-align: center;
+	// 		font-weight: 600;
+	// 		margin-top: 1rem;
+	// 		animation: slideIn 0.3s ease-out;
+	// 	}
+	// }
+
+	// @keyframes slideIn {
+	// 	from {
+	// 		opacity: 0;
+	// 		transform: translateY(-10px);
+	// 	}
+	// 	to {
+	// 		opacity: 1;
+	// 		transform: translateY(0);
+	// 	}
+	// }
+
+	// // Responsive adjustments
+	// @media screen and (max-width: map.get($break-points, small)) {
+	// 	.contact-page-wrapper {
+	// 		&__background {
+	// 			padding: 1rem 0; // Mniejszy padding na mobile
+	// 		}
+
+	// 		&__form {
+	// 			position: relative;
+	// 			top: auto;
+	// 			left: auto;
+	// 			transform: none;
+	// 			width: calc(100% - 2rem); // Margin z boków
+	// 			max-width: none;
+	// 			padding: 1.5rem;
+	// 			margin: 1rem;
+	// 			height: auto;
+	// 			max-height: none;
+	// 		}
+	// 	}
+
+	// 	.contact-form {
+	// 		&__title {
+	// 			font-size: $m-fz;
+	// 			margin-bottom: 1.5rem;
+	// 		}
+
+	// 		form {
+	// 			gap: 1.25rem;
+	// 			width: 100%;
+	// 		}
+
+	// 		.input-group {
+	// 			input,
+	// 			select,
+	// 			textarea {
+	// 				padding: 0.6rem 0.8rem;
+	// 				width: 100%;
+	// 				box-sizing: border-box;
+	// 			}
+	// 		}
+
+	// 		.submit-btn {
+	// 			padding: 0.8rem 1.5rem;
+	// 			font-size: $xs-fz;
+	// 			width: 100%;
+	// 			display: block;
+	// 		}
+	// 	}
+}

@@ -1,1 +1,90 @@
-<p>contact-pages works!</p>
+<div class="contact-page-wrapper">
+	<div class="contact-page-wrapper__background">
+		<div class="contact-page-wrapper__form contact-form page-wrapper">
+			<h2 class="contact-form__title">Skontaktuj się z nami</h2>
+			<form [formGroup]="contactForm" (ngSubmit)="sendMessage()" class="contact-form__form">
+				<div class="input-group">
+					<label for="name">Imię *</label>
+					<input
+						id="name"
+						type="text"
+						formControlName="name"
+						placeholder="Wprowadź swoje imię"
+						[class.error]="isFieldInvalid('name')"
+					/>
+					<div class="error-message" *ngIf="isFieldInvalid('name')">
+						<span *ngIf="contactForm.get('name')?.errors?.['required']">Imię jest wymagane</span>
+						<span *ngIf="contactForm.get('name')?.errors?.['minlength']">Minimalna długość to 2 znaki</span>
+					</div>
+				</div>
+
+				<div class="input-group">
+					<label for="email">Email *</label>
+					<input
+						id="email"
+						type="email"
+						formControlName="email"
+						placeholder="twoj@email.com"
+						[class.error]="isFieldInvalid('email')"
+					/>
+					<div class="error-message" *ngIf="isFieldInvalid('email')">
+						<span *ngIf="contactForm.get('email')?.errors?.['required']">Email jest wymagany</span>
+						<span *ngIf="contactForm.get('email')?.errors?.['email']">Wprowadź poprawny adres email</span>
+					</div>
+				</div>
+
+				<div class="input-group">
+					<label for="phone">Telefon</label>
+					<input id="phone" type="tel" formControlName="phone" placeholder="+48 123 456 789" />
+				</div>
+
+				<div class="input-group">
+					<label for="offerType">Rodzaj oferty *</label>
+					<select id="offerType" formControlName="offerType" [class.error]="isFieldInvalid('offerType')">
+						<option value="">Wybierz rodzaj oferty</option>
+						<option value="basic">Szablon podstawowy</option>
+						<option value="advanced">Szablon zaawansowany</option>
+						<option value="individual">Wycena indywidualna</option>
+					</select>
+					<div class="error-message" *ngIf="isFieldInvalid('offerType')">
+						<span *ngIf="contactForm.get('offerType')?.errors?.['required']">Wybór oferty jest wymagany</span>
+					</div>
+				</div>
+
+				<div class="input-group">
+					<label for="message">Wiadomość *</label>
+					<textarea
+						id="message"
+						formControlName="message"
+						placeholder="Opisz swoje wymagania..."
+						rows="5"
+						[class.error]="isFieldInvalid('message')"
+					></textarea>
+					<div class="error-message" *ngIf="isFieldInvalid('message')">
+						<span *ngIf="contactForm.get('message')?.errors?.['required']">Wiadomość jest wymagana</span>
+						<span *ngIf="contactForm.get('message')?.errors?.['minlength']">Minimalna długość to 10 znaków</span>
+					</div>
+				</div>
+
+				<div class="input-group checkbox-group">
+					<label class="checkbox-label">
+						<input type="checkbox" formControlName="gdprAccepted" />
+						<span class="checkmark"></span>
+						Akceptuję politykę prywatności i zgodę na przetwarzanie danych osobowych *
+					</label>
+					<div class="error-message" *ngIf="isFieldInvalid('gdprAccepted')">
+						<span *ngIf="contactForm.get('gdprAccepted')?.errors?.['required']">Akceptacja RODO jest wymagana</span>
+					</div>
+				</div>
+
+				<button type="submit" class="submit-btn" [disabled]="contactForm.invalid || isSubmitting">
+					<span *ngIf="!isSubmitting">Wyślij wiadomość</span>
+					<span *ngIf="isSubmitting">Wysyłanie...</span>
+				</button>
+
+				<div class="success-message" *ngIf="isSubmitted">Dziękujemy! Wiadomość została wysłana pomyślnie.</div>
+			</form>
+		</div>
+		<div class="contact-page-wrapper__info"></div>
+	</div>
+</div>
