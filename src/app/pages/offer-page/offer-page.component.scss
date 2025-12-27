@@ -104,28 +104,28 @@
 			margin: 2rem auto;
 		}
 
-		.project-items {
+		.offer-items {
 			flex-direction: row;
 			flex-wrap: wrap;
 
 			&__item {
 				width: 550px;
-				cursor: pointer;
 
-				.item-pic {
-					img {
-					}
+				p {
+					font-size: $xs-fz * 1.1;
+				}
 
-					&__mobile {
-						display: none !important;
-					}
-
-					&__desktop {
-						display: block !important;
-					}
-					.item-description {
+				ul {
+					li,
+					a {
 						font-size: $xs-fz;
 					}
+				}
+
+				.button {
+					padding-top: 0.5rem;
+					padding-bottom: 0.5rem;
+					font-size: $xs-fz;
 				}
 			}
 		}

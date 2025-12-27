@@ -4,11 +4,11 @@
 			<h1>Oferta</h1>
 		</div>
 		<div class="offer-page-wrapper__sub-title mt-4">
-			<h3>
+			<h3 class="mb-3">
 				Nasza oferta to prostota wyboru i różnorodność możliwości. Sam zdecyduj czy skorzytać z szablonu, czy stworzyć indywidualny
 				projekt.
 			</h3>
-			<h3>Jeżeli masz już domenę, hosting, serwer - potrzebujez tylko Nasz kod.</h3>
+			<h3 class="mb-3">Jeżeli masz już domenę, hosting, serwer - potrzebujez tylko Nasz kod.</h3>
 			<h3>Chcesz zacząć od początku - zrobimy wszystko za Ciebie!!!</h3>
 		</div>
 		<div class="offer-page-wrapper__items offer-items">
@@ -25,14 +25,43 @@
 					</ul>
 				</div>
 				<a class="button" href="https://www.soft-template.developerweb.pl/" target="_blank">Zobacz szablon</a>
-				<p (click)="toggleWrapper()">Potrzebujesz domeny?</p>
-				<div class="domain-content" [ngStyle]="{ display: wrapperOpen ? 'block' : 'none' }">
+				<p style="cursor: pointer" (click)="toggleWrapper1()">Potrzebujesz domeny?</p>
+				<div class="domain-content" [ngStyle]="{ display: wrapperOpen1 ? 'block' : 'none' }">
 					<ul>
 						<li>Nie masz domeny?</li>
 						<li>Hostingu?</li>
 						<li>Serwera?</li>
-						<li>Żaden problem - mamy gotowe rozwiazania przy współpracy z OVH</li>
+						<li>Żaden problem - mamy gotowe rozwiązania przy współpracy z OVH</li>
 						<li>Ceny domen z hostingiem zaczynają się od 150pln / rok</li>
+						<li><a target="_blank" href="https://www.ovhcloud.com/pl/web-cloud/">Zobacz plany</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="offer-items__item">
+				<p>Dedykowane strony</p>
+				<div class="content">
+					<ul>
+						<li>Ty znasz swoja branżę najlpiej - wybierz projekt dla Siebie</li>
+						<li>Dobierz narzędzia:</li>
+						<li>Blog, Aktualności, Promocje, Rezerwacje, Kalendarz</li>
+						<li>Wszystko co chcesz pokazać - będzie widoczne!</li>
+						<li><a href="">Zapytaj o cenę</a></li>
+					</ul>
+				</div>
+				<div class="buttons-list flex justify-content-between gap-4">
+					<a class="button" href="https://www.przedszkolemokrzyska.pl/" target="_blank">Projekt #1</a>
+					<a class="button" href="https://www.mawex-biuro.pl/" target="_blank">Projekt #2</a>
+					<a class="button" href="http://www.twojalogistyka.com.pl/" target="_blank">Projekt #3</a>
+				</div>
+				<p style="cursor: pointer" (click)="toggleWrapper2()">Potrzebujesz domeny?</p>
+				<div class="domain-content" [ngStyle]="{ display: wrapperOpen2 ? 'block' : 'none' }">
+					<ul>
+						<li>Nie masz domeny?</li>
+						<li>Hostingu?</li>
+						<li>Serwera?</li>
+						<li>Żaden problem - mamy gotowe rozwiązania przy współpracy z OVH</li>
+						<li>Ceny domen z hostingiem zaczynają się od 150pln / rok</li>
+						<li>Dedykowane serwery wirtualne w cenach od 450pln / rok</li>
 						<li><a target="_blank" href="https://www.ovhcloud.com/pl/web-cloud/">Zobacz plany</a></li>
 					</ul>
 				</div>
