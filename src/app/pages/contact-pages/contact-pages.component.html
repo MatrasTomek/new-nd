@@ -40,8 +40,12 @@
 
 				<div class="input-group">
 					<label for="offerType">Rodzaj oferty *</label>
-					<select id="offerType" formControlName="offerType" [class.error]="isFieldInvalid('offerType')">
-						<option value="">Wybierz rodzaj oferty</option>
+					<select
+						id="offerType"
+						formControlName="offerType"
+						[class.error]="isFieldInvalid('offerType')"
+						placeholder="Wybierz rodzaj oferty"
+					>
 						<option value="basic">Szablon podstawowy</option>
 						<option value="advanced">Szablon zaawansowany</option>
 						<option value="individual">Wycena indywidualna</option>

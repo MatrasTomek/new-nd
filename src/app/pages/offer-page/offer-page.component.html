@@ -1,1 +1,51 @@
-<p>offer-page works!</p>
+<div class="page-wrapper">
+	<div class="offer-page-wrapper">
+		<div class="offer-page-wrapper__title">
+			<h1>Oferta</h1>
+		</div>
+		<div class="offer-page-wrapper__sub-title mt-4">
+			<h3>
+				Nasza oferta to prostota wyboru i różnorodność możliwości. Sam zdecyduj czy skorzytać z szablonu, czy stworzyć indywidualny
+				projekt.
+			</h3>
+			<h3>Jeżeli masz już domenę, hosting, serwer - potrzebujez tylko Nasz kod.</h3>
+			<h3>Chcesz zacząć od początku - zrobimy wszystko za Ciebie!!!</h3>
+		</div>
+		<div class="offer-page-wrapper__items offer-items">
+			<div class="offer-items__item">
+				<p>Szablon podstawowy</p>
+				<div class="content">
+					<ul>
+						<li>Wybierasz kolorystykę,</li>
+						<li>Czcionkę,</li>
+						<li>Zdjęcia,</li>
+						<li>Przesyłasz teksty,</li>
+						<li>Strona gotowa - czas realizacji 2-3 dni robocze</li>
+						<li><a href="">Zapytaj o cenę</a></li>
+					</ul>
+				</div>
+				<a class="button" href="https://www.soft-template.developerweb.pl/" target="_blank">Zobacz szablon</a>
+				<p (click)="toggleWrapper()">Potrzebujesz domeny?</p>
+				<div class="domain-content" [ngStyle]="{ display: wrapperOpen ? 'block' : 'none' }">
+					<ul>
+						<li>Nie masz domeny?</li>
+						<li>Hostingu?</li>
+						<li>Serwera?</li>
+						<li>Żaden problem - mamy gotowe rozwiazania przy współpracy z OVH</li>
+						<li>Ceny domen z hostingiem zaczynają się od 150pln / rok</li>
+						<li><a target="_blank" href="https://www.ovhcloud.com/pl/web-cloud/">Zobacz plany</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div *ngIf="itemSelected$ | async as selectedItem" class="item-overview">
+	<div class="pi pi-times item-close" (click)="itemSelected$.next(null)"></div>
+	<div class="item-overview__item">
+		<div class="item-pic">
+			<img [src]="selectedItem.mobilePic" alt="{{ selectedItem.name }} Mobile" class="item-pic__mobile" />
+			<img [src]="selectedItem.desktopPic" alt="{{ selectedItem.name }} Desktop" class="item-pic__desktop" />
+		</div>
+	</div>
+</div> -->

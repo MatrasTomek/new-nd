@@ -1,0 +1,133 @@
+@use '../../../styles.scss' as *;
+@use 'sass:map';
+
+.offer-page-wrapper {
+	margin-bottom: 2rem;
+
+	&__title {
+		width: 60%;
+		margin: 0 auto;
+
+		h1 {
+			background: linear-gradient(to right, $gradientFirst, $gradientSecond, $gradientThird, $gradientFourth);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-size: $m-fz;
+			text-align: center;
+		}
+	}
+
+	&__sub-title {
+		width: 90%;
+		margin: 0 auto;
+
+		h3 {
+			display: inline-block;
+			color: $coldColor;
+			text-align: center;
+			font-size: $xxs-fz;
+			font-family: 'Fira', sans-serif;
+		}
+	}
+
+	&__items {
+		width: 90%;
+		margin: 2rem auto;
+	}
+
+	.offer-items {
+		display: flex;
+		flex-direction: column;
+
+		&__item {
+			margin: 1.5rem auto;
+			padding: 1rem;
+			width: 300px;
+			box-shadow: 0px 4px 10px #3b82f6;
+			border-radius: $ownRadius;
+			position: relative;
+
+			p {
+				color: $coldColor;
+				text-align: center;
+				width: 100%;
+				display: inline-block;
+				font-family: 'Fira', sans-serif;
+				font-size: $xxs-fz;
+			}
+
+			ul {
+				li,
+				a {
+					color: $contentColor;
+					font-family: 'Fira', sans-serif;
+					margin-bottom: 0.5rem;
+					font-size: $xxs-fz;
+				}
+			}
+
+			.button {
+				margin: 1rem auto;
+				width: 100%;
+				text-align: center;
+				display: inline-block;
+				background-color: $coldColor;
+				border-radius: $ownRadius;
+				color: #fefefe;
+				text-decoration: none;
+				font-size: $xxs-fz;
+				padding-top: 0.25rem;
+				padding-bottom: 0.25rem;
+			}
+		}
+	}
+
+	@media screen and (min-width: map.get($break-points, large)) {
+		&__title {
+			h1 {
+				font-size: $x-fz;
+			}
+		}
+
+		&__sub-title {
+			width: 45%;
+			margin: 0 auto 0 3rem;
+
+			h3 {
+				font-size: $xs-fz * 1.1;
+				text-align: left;
+			}
+		}
+
+		&__items {
+			width: 90%;
+			margin: 2rem auto;
+		}
+
+		.project-items {
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			&__item {
+				width: 550px;
+				cursor: pointer;
+
+				.item-pic {
+					img {
+					}
+
+					&__mobile {
+						display: none !important;
+					}
+
+					&__desktop {
+						display: block !important;
+					}
+					.item-description {
+						font-size: $xs-fz;
+					}
+				}
+			}
+		}
+	}
+}
