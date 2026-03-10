@@ -4,6 +4,8 @@ import { StartPageComponent } from './pages/start-page/start-page.component';
 import { OfferPageComponent } from './pages/offer-page/offer-page.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { ContactPagesComponent } from './pages/contact-pages/contact-pages.component';
+import { RodoPageComponent } from './pages/rodo-page/rodo-page.component';
+import { CookiePageComponent } from './pages/cookie-page/cookie-page.component';
 
 const routes: Routes = [
 	{
@@ -22,6 +24,14 @@ const routes: Routes = [
 		path: 'contact',
 		component: ContactPagesComponent,
 	},
+	{
+		path: 'rodo',
+		component: RodoPageComponent,
+	},
+	{
+		path: 'cookie',
+		component: CookiePageComponent,
+	},
 ];
 
 @NgModule({
@@ -29,4 +39,3 @@ const routes: Routes = [
 	exports: [RouterModule],
 })
 export class AppRoutingModule {}
-

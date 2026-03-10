@@ -74,7 +74,7 @@
 					<label class="checkbox-label">
 						<input type="checkbox" formControlName="gdprAccepted" />
 						<span class="checkmark"></span>
-						Akceptuję politykę prywatności i zgodę na przetwarzanie danych osobowych *
+						Akceptuję politykę prywatności i zgodę na przetwarzanie danych osobowych - <a routerLink="/rodo">RODO</a>
 					</label>
 					<div class="error-message" *ngIf="isFieldInvalid('gdprAccepted')">
 						<span *ngIf="contactForm.get('gdprAccepted')?.errors?.['required']">Akceptacja RODO jest wymagana</span>
