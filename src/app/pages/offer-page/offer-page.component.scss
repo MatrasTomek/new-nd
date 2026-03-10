@@ -3,6 +3,7 @@
 
 .offer-page-wrapper {
 	margin-bottom: 2rem;
+	min-height: calc(100vh - 100px);
 
 	&__title {
 		width: 60%;

@@ -73,7 +73,9 @@
 		.offer {
 			&__item {
 				border-radius: $ownRadius;
-				box-shadow: 6px 6px 12px #b8b8b8, -6px -6px 12px #ffffff;
+				box-shadow:
+					6px 6px 12px #b8b8b8,
+					-6px -6px 12px #ffffff;
 				transition: all 0.2s ease-in-out;
 				max-width: 420px;
 				margin: auto;
@@ -246,7 +248,6 @@
 
 			.offer {
 				display: inline-flex;
-				cursor: pointer;
 				transition: 0.3s;
 
 				&__item {
@@ -268,7 +269,7 @@
 						transform: scale(1.02);
 
 						&:hover a {
-							color: $gradientFourth;
+							color: $gradientFirst;
 						}
 					}
 				}
