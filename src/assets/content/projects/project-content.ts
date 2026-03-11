@@ -70,4 +70,28 @@ export const projectsItems: ProjectItem[] = [
 		description:
 			'Dzięki nowoczesnym technologiom, takim jak Angular, React czy Node.js, zapewniamy intuicyjne interfejsy, wysoką wydajność oraz łatwą integrację z innymi systemami.',
 	},
+	{
+		id: 9,
+		name: 'Charts',
+		mobilePic: '../../../assets/images/project-page/charts_mobile.png',
+		desktopPic: '../../../assets/images/project-page/charts_desktop.png',
+		description:
+			'Aplikacje prezentuje dane w formie interaktywnych wykresów opartych na ECharts, zapewniając czytelne wizualizacje i dynamiczną analizę trendów.',
+	},
+	{
+		id: 10,
+		name: 'Tlog',
+		mobilePic: '../../../assets/images/project-page/tlog_mobile.png',
+		desktopPic: '../../../assets/images/project-page/tlog_desktop.png',
+		description:
+			'Projekty stron, które łączą estetykę, funkcjonalność i wysoką wydajność, aby Twoja marka mogła skutecznie docierać do klientów.',
+	},
+	// {
+	// 	id: 11,
+	// 	name: 'Wareh',
+	// 	mobilePic: '../../../assets/images/project-page/wareh_mobile.png',
+	// 	desktopPic: '../../../assets/images/project-page/wareh_desktop.png',
+	// 	description:
+	// 		'Dzięki nowoczesnym technologiom, takim jak Angular, React czy Node.js, zapewniamy intuicyjne interfejsy, wysoką wydajność oraz łatwą integrację z innymi systemami.',
+	// },
 ];

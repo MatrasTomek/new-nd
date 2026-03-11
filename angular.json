@@ -94,9 +94,5 @@
 	},
 	"cli": {
 		"analytics": false
-	},
-	"stylePreprocessorOptions": {
-		"includePaths": ["src"],
-		"includePaths": ["node_modules"]
 	}
 }
