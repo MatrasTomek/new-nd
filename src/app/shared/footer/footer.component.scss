@@ -3,7 +3,7 @@
 
 .page-footer-wrapper {
 	width: 100%;
-	justify-content: space-between;
+	justify-content: center;
 	border-top: 1px solid $borderColor;
 	flex-wrap: wrap;
 
@@ -26,6 +26,18 @@
 		}
 	}
 
+	&__adress {
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+
+		span {
+			color: $borderColor;
+			font-family: 'Fira';
+			font-size: $xxs-fz / 1.2;
+		}
+	}
+
 	&__media {
 		padding: 1rem;
 
@@ -35,6 +47,9 @@
 	}
 
 	@media screen and (min-width: map.get($break-points, large)) {
+		flex-direction: row;
+		justify-content: space-between;
+
 		&__links {
 			padding: 1rem 3rem;
 			li {
@@ -46,6 +61,25 @@
 						text-decoration: underline;
 					}
 				}
+			}
+		}
+
+		&__adress {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			width: auto;
+
+			span {
+				font-size: $xxs-fz / 1.1;
+				margin-right: 4px;
+				margin-bottom: 7px;
+			}
+
+			span:not(:last-child) {
+				border-right: 1.5px solid $borderColor;
+				padding-right: 4px;
 			}
 		}
 
