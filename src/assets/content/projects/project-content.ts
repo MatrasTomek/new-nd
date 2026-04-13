@@ -86,12 +86,12 @@ export const projectsItems: ProjectItem[] = [
 		description:
 			'Projekty stron, które łączą estetykę, funkcjonalność i wysoką wydajność, aby Twoja marka mogła skutecznie docierać do klientów.',
 	},
-	// {
-	// 	id: 11,
-	// 	name: 'Wareh',
-	// 	mobilePic: '../../../assets/images/project-page/wareh_mobile.png',
-	// 	desktopPic: '../../../assets/images/project-page/wareh_desktop.png',
-	// 	description:
-	// 		'Dzięki nowoczesnym technologiom, takim jak Angular, React czy Node.js, zapewniamy intuicyjne interfejsy, wysoką wydajność oraz łatwą integrację z innymi systemami.',
-	// },
+	{
+		id: 11,
+		name: 'PostAI',
+		mobilePic: '../../../assets/images/project-page/postai_mobile.png',
+		desktopPic: '../../../assets/images/project-page/postai_desktop.png',
+		description:
+			'Zintegrowana z narzędziami AI platforma do automatyzacji pisania postów. Umożliwia tworzenie angażujących treści, oszczędzając czas i zwiększając efektywność marketingu.',
+	},
 ];
