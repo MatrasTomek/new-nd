@@ -1,8 +1,11 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
+    imports: [SharedModule, RouterModule.forRoot([])],
     declarations: [AppComponent]
   }));
 
@@ -18,10 +21,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('new-nd');
   });
 
-  it('should render title', () => {
+  it('should render the shared navigation and footer around the routed page', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('new-nd app is running!');
+    expect(compiled.querySelector('app-nav-bar')).toBeTruthy();
+    expect(compiled.querySelector('app-footer')).toBeTruthy();
   });
 });
