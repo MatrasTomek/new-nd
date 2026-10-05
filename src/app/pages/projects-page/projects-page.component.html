@@ -14,8 +14,8 @@
 			<div *ngFor="let project of projects" class="project-items__item" (click)="selectItem(project)">
 				<div class="device-frame">
 					<div class="item-pic">
-						<img [src]="project.mobilePic" alt="{{ project.name }} Mobile" class="item-pic__mobile" />
-						<img [src]="project.desktopPic" alt="{{ project.name }} Desktop" class="item-pic__desktop" />
+						<img [src]="project.mobilePic" alt="{{ project.name }} Mobile" class="item-pic__mobile" loading="lazy" decoding="async" />
+						<img [src]="project.desktopPic" alt="{{ project.name }} Desktop" class="item-pic__desktop" loading="lazy" decoding="async" />
 						<span class="item-description">{{ project.description }}</span>
 					</div>
 				</div>
