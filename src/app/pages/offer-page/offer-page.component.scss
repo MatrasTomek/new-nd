@@ -1,18 +1,22 @@
 @use '../../../assets/styles/variables' as *;
+@use '../../../assets/styles/mixins' as *;
 @use 'sass:map';
 
 .offer-page-wrapper {
 	margin-bottom: 2rem;
 	min-height: calc(100vh - 100px);
+	background: $darkMeshGradient;
+	padding: 2rem 0 3rem;
+	border-radius: $ownRadius;
 
 	&__title {
-		width: 60%;
+		width: 90%;
 		margin: 0 auto;
 
 		h1 {
-			background: linear-gradient(to right, $gradientFirst, $gradientSecond, $gradientThird, $gradientFourth);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
+			font-family: $headingFont;
+			font-weight: 700;
+			color: $textOnDark;
 			font-size: $m-fz;
 			text-align: center;
 		}
@@ -24,10 +28,11 @@
 
 		h3 {
 			display: inline-block;
-			color: $coldColor;
+			color: $textOnDarkMuted;
 			text-align: center;
 			font-size: $xxs-fz;
-			font-family: 'Fira', sans-serif;
+			font-family: $headingFont;
+			font-weight: 400;
 		}
 	}
 
@@ -39,55 +44,57 @@
 	.offer-items {
 		display: flex;
 		flex-direction: column;
+		gap: 1.5rem;
 
 		&__item {
-			margin: 1.5rem auto;
-			padding: 1rem;
-			width: 300px;
-			box-shadow: 0px 4px 10px #3b82f6;
-			border-radius: $ownRadius;
+			@include glass-panel;
+			padding: 1.5rem;
+			background: linear-gradient(160deg, rgba(68, 59, 246, 0.08), rgba(238, 66, 140, 0.08));
 			position: relative;
 
-			p {
-				color: $coldColor;
+			> p {
+				font-family: $headingFont;
+				font-weight: 700;
+				font-size: $m-fz;
+				color: $textOnDark;
 				text-align: center;
-				width: 100%;
-				display: inline-block;
-				font-family: 'Fira', sans-serif;
-				font-size: $xxs-fz;
 			}
 
 			ul {
 				li,
 				a {
-					color: $contentColor;
-					font-family: 'Fira', sans-serif;
+					color: $textOnDarkMuted;
+					font-family: $headingFont;
+					font-weight: 400;
 					margin-bottom: 0.5rem;
 					font-size: $xxs-fz;
+				}
+
+				a {
+					color: $hightLightColor;
 				}
 			}
 
 			.button {
+				display: inline-block;
 				margin: 1rem auto;
 				width: 100%;
 				text-align: center;
-				display: inline-block;
-				background-color: $coldColor;
-				border-radius: $ownRadius;
-				color: #fefefe;
+				background: $coldColor;
+				color: white;
+				padding: 0.6rem 1.25rem;
+				border-radius: $primeBorderRadius;
 				text-decoration: none;
+				font-family: $headingFont;
+				font-weight: 600;
 				font-size: $xxs-fz;
-				padding-top: 0.25rem;
-				padding-bottom: 0.25rem;
 			}
 		}
 	}
 
 	@media screen and (min-width: map.get($break-points, large)) {
-		&__title {
-			h1 {
-				font-size: $x-fz;
-			}
+		&__title h1 {
+			font-size: $x-fz;
 		}
 
 		&__sub-title {
@@ -100,32 +107,19 @@
 			}
 		}
 
-		&__items {
-			width: 90%;
-			margin: 2rem auto;
-		}
-
 		.offer-items {
 			flex-direction: row;
-			flex-wrap: wrap;
+			align-items: stretch;
 
 			&__item {
-				width: 550px;
+				flex: 1;
 
-				p {
-					font-size: $xs-fz * 1.1;
-				}
-
-				ul {
-					li,
-					a {
-						font-size: $xs-fz;
-					}
+				ul li,
+				ul a {
+					font-size: $xs-fz;
 				}
 
 				.button {
-					padding-top: 0.5rem;
-					padding-bottom: 0.5rem;
 					font-size: $xs-fz;
 				}
 			}

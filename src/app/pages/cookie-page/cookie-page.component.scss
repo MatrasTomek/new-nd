@@ -1,3 +1,5 @@
+@use '../../../assets/styles/variables' as *;
+
 .cookies-policy {
 	padding: 60px 20px 40px;
 	max-width: 80vw;
@@ -6,7 +8,7 @@
 
 	.cookies-title {
 		font-size: 2rem;
-		color: #04051f;
+		color: #fefefe;
 		margin-bottom: 40px;
 		padding-bottom: 12px;
 		border-bottom: 2px solid #ee428c;
@@ -17,14 +19,14 @@
 
 		.cookies-heading {
 			font-size: 1.5rem;
-			color: #2d2e55;
+			color: #c29ac6;
 			margin-bottom: 10px;
 		}
 
 		.cookies-text {
 			font-size: 1.2rem;
 			line-height: 1.75;
-			color: #04051f;
+			color: #fefefe;
 		}
 
 		.cookies-list {
@@ -34,7 +36,7 @@
 			li {
 				font-size: 1.2rem;
 				line-height: 1.75;
-				color: #04051f;
+				color: #fefefe;
 				margin-bottom: 6px;
 			}
 		}

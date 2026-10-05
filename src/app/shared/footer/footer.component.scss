@@ -4,7 +4,9 @@
 .page-footer-wrapper {
 	width: 100%;
 	justify-content: center;
-	border-top: 1px solid $borderColor;
+	border-top: 2px solid transparent;
+	border-image: $accentGradient 1;
+	background: $darkBg;
 	flex-wrap: wrap;
 
 	&__links {
@@ -19,8 +21,8 @@
 			margin-left: 1rem;
 			a {
 				text-decoration: none;
-				color: $borderColor;
-				font-family: 'Fira';
+				color: $textOnDarkMuted;
+				font-family: $headingFont;
 				font-size: $xxs-fz;
 			}
 		}
@@ -32,9 +34,13 @@
 		align-items: center;
 
 		span {
-			color: $borderColor;
-			font-family: 'Fira';
-			font-size: $xxs-fz / 1.2;
+			color: $textOnDarkMuted;
+			font-family: $headingFont;
+			font-size: calc(#{$xxs-fz} / 1.2);
+
+			a {
+				color: $hightLightColor;
+			}
 		}
 	}
 
@@ -43,6 +49,7 @@
 
 		i {
 			margin-left: 1rem;
+			color: $textOnDark;
 		}
 	}
 
@@ -58,6 +65,7 @@
 					transition: 0.3s;
 
 					&:hover {
+						color: $hightLightColor;
 						text-decoration: underline;
 					}
 				}
@@ -72,13 +80,13 @@
 			width: auto;
 
 			span {
-				font-size: $xxs-fz / 1.1;
+				font-size: calc(#{$xxs-fz} / 1.1);
 				margin-right: 4px;
 				margin-bottom: 7px;
 			}
 
 			span:not(:last-child) {
-				border-right: 1.5px solid $borderColor;
+				border-right: 1.5px solid $glassBorder;
 				padding-right: 4px;
 			}
 		}
@@ -92,7 +100,7 @@
 				transition: 0.3s;
 
 				&:hover {
-					text-decoration: underline;
+					color: $hightLightColor;
 				}
 			}
 		}

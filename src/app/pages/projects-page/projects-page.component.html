@@ -12,11 +12,16 @@
 		</div>
 		<div class="project-page-wrapper__items project-items">
 			<div *ngFor="let project of projects" class="project-items__item" (click)="selectItem(project)">
-				<div class="item-pic">
-					<img [src]="project.mobilePic" alt="{{ project.name }} Mobile" class="item-pic__mobile" />
-					<img [src]="project.desktopPic" alt="{{ project.name }} Desktop" class="item-pic__desktop" />
-					<span class="item-description">{{ project.description }}</span>
+				<div class="device-frame">
+					<div class="item-pic">
+						<img [src]="project.mobilePic" alt="{{ project.name }} Mobile" class="item-pic__mobile" />
+						<img [src]="project.desktopPic" alt="{{ project.name }} Desktop" class="item-pic__desktop" />
+						<span class="item-description">{{ project.description }}</span>
+					</div>
 				</div>
+				<a *ngIf="project.liveUrl" class="live-link" [href]="project.liveUrl" target="_blank" (click)="$event.stopPropagation()"
+					>Zobacz live</a
+				>
 			</div>
 		</div>
 	</div>

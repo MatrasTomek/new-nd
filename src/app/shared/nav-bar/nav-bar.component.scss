@@ -1,4 +1,5 @@
 @use '../../../assets/styles/variables' as *;
+@use '../../../assets/styles/mixins' as *;
 @use 'sass:map';
 
 .nav-bar-wrapper {
@@ -6,35 +7,64 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: $basicBgColor;
+	background: rgba(10, 6, 24, 0.75);
+	backdrop-filter: blur($glassBlur);
+	-webkit-backdrop-filter: blur($glassBlur);
+	border-bottom: 1px solid $glassBorder;
 	z-index: 100;
 
 	&__logo {
-		.logo-image {
-			background-image: url('../../../assets/images/ND_logo.png');
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: cover;
-			width: 200px;
-			height: 100px;
+		padding: 0 20px;
+
+		.logo-mark {
+			display: inline-flex;
+			align-items: baseline;
+			gap: 4px;
+			font-family: $headingFont;
+			font-weight: 700;
+			font-size: 1.4rem;
+			line-height: 100px;
+
+			&__nd {
+				color: $hightLightColor;
+			}
+			&__tag {
+				color: $textOnDark;
+				font-size: 0.9rem;
+				letter-spacing: 1px;
+			}
+			&__code {
+				color: $coldColor;
+				font-family: $codeAccentFont;
+				font-size: 1rem;
+			}
 		}
 	}
 
 	&__menu {
 		.menu-wrapper-burger {
 			position: absolute;
-			right: 50px;
-			top: 40px;
+			right: 30px;
+			top: 28px;
 			z-index: 2;
+			color: $textOnDark;
+			background: transparent;
+			border: none;
+			padding: 0;
+			width: 44px;
+			height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
 		}
 		.menu-wrapper-items {
 			position: fixed;
-			top: -150%;
+			top: -100vh;
 			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: $basicBgColor;
-			margin-top: 100px;
+			width: 100vw;
+			height: 100vh;
+			background: $darkBg;
 			display: flex;
 			flex-direction: column;
 			align-items: start;
@@ -49,14 +79,19 @@
 				a {
 					text-decoration: none;
 					text-transform: uppercase;
-					color: $buttonHoverColor;
+					font-family: $headingFont;
+					color: $textOnDark;
 				}
 			}
 
 			&__open {
-				top: 0;
+				top: 100px;
 			}
 		}
+	}
+
+	&__lang {
+		display: none;
 	}
 
 	@media screen and (min-width: map.get($break-points, large)) {
@@ -71,30 +106,46 @@
 			.menu-wrapper-items {
 				position: relative;
 				top: unset;
+				background: transparent;
 				flex-direction: row;
 				margin: 0;
 				padding-top: 0;
-				margin-right: 60px;
+				margin-right: 30px;
 				height: auto;
 				align-items: center;
 
 				li {
 					margin-bottom: 0 !important;
-					margin-right: 100px;
+					margin-right: 60px;
 
 					a {
 						transition: 0.3s;
 					}
 
 					&:hover a:not(.router-link-active) {
-						color: $gradientFourth;
+						color: $hightLightColor;
 					}
 				}
 			}
+		}
+
+		&__lang {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 34px;
+			height: 34px;
+			margin-right: 30px;
+			border-radius: 50%;
+			border: 1px solid $glassBorder;
+			color: $textOnDarkMuted;
+			font-family: $codeAccentFont;
+			font-size: 0.75rem;
+			cursor: not-allowed;
 		}
 	}
 }
 
 .router-link-active {
-	border-bottom: 3px solid $gradientFourth;
+	border-bottom: 3px solid $hightLightColor;
 }

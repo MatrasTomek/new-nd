@@ -1,16 +1,9 @@
-@use './variables.scss';
+@use './variables.scss' as *;
 
-// @mixin links {
-//   @media screen and (min-width: map-get($break-points, large)) {
-//     &:hover {
-//       color: $hoverLinkColor;
-//       transition: $transition;
-//     }
-//   }
-// }
-
-// @mixin pageWrapper {
-//   width: 100%;
-//   height: calc(100% - $navComponentHeight);
-//   padding: $pagePadding;
-// }
+@mixin glass-panel($radius: $ownRadius) {
+	background: $glassBg;
+	border: 1px solid $glassBorder;
+	border-radius: $radius;
+	backdrop-filter: blur($glassBlur);
+	-webkit-backdrop-filter: blur($glassBlur);
+}

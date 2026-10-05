@@ -1,3 +1,5 @@
+@use '../../../assets/styles/variables' as *;
+
 .privacy-policy {
 	padding: 60px 20px 40px;
 	max-width: 80vw;
@@ -6,7 +8,7 @@
 
 	.pp-title {
 		font-size: 2rem;
-		color: #04051f;
+		color: #fefefe;
 		margin-bottom: 40px;
 		padding-bottom: 12px;
 		border-bottom: 2px solid #ee428c;
@@ -17,14 +19,14 @@
 
 		.pp-heading {
 			font-size: 1.5rem;
-			color: #2d2e55;
+			color: #c29ac6;
 			margin-bottom: 10px;
 		}
 
 		.pp-text {
 			font-size: 1.2rem;
 			line-height: 1.75;
-			color: #04051f;
+			color: #fefefe;
 
 			a {
 				color: #ee428c;
@@ -44,7 +46,7 @@
 			li {
 				font-size: 1.2rem;
 				line-height: 1.75;
-				color: #04051f;
+				color: #fefefe;
 				margin-bottom: 6px;
 			}
 		}
@@ -58,7 +60,7 @@
 
 	.rodo-title {
 		font-size: 1.75rem;
-		color: #04051f;
+		color: #c29ac6;
 		margin-bottom: 24px;
 		padding-bottom: 10px;
 		border-bottom: 2px solid #443bf6;
@@ -67,8 +69,18 @@
 	.rodo-text {
 		font-size: 1.2rem;
 		line-height: 1.75;
-		color: #04051f;
+		color: #fefefe;
 		margin-bottom: 10px;
+
+		a {
+			color: #ee428c;
+			text-decoration: none;
+
+			&:hover {
+				color: #443bf6;
+				text-decoration: underline;
+			}
+		}
 	}
 }
 
