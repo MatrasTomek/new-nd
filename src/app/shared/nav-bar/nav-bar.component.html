@@ -1,13 +1,21 @@
 <div class="nav-bar-wrapper flex">
 	<div class="nav-bar-wrapper__logo">
 		<a routerLink="/">
-			<div class="logo-image"></div>
+			<span class="logo-mark">
+				<span class="logo-mark__nd">ND</span><span class="logo-mark__tag">SOFT</span><span class="logo-mark__code">&lt;/&gt;</span>
+			</span>
 		</a>
 	</div>
 	<div class="nav-bar-wrapper__menu">
-		<div class="menu-wrapper-burger" (click)="toggleMenu()">
+		<button
+			type="button"
+			class="menu-wrapper-burger"
+			(click)="toggleMenu()"
+			aria-label="Menu"
+			[attr.aria-expanded]="menuOpen"
+		>
 			<i [ngClass]="menuOpen ? 'pi pi-times' : 'pi pi-bars'" style="font-size: 1.5rem"></i>
-		</div>
+		</button>
 		<ul class="menu-wrapper-items" [class.menu-wrapper-items__open]="menuOpen">
 			<li class="ml-4">
 				<a routerLink="/" routerLinkActive="router-link-active" (click)="toggleMenu()" [routerLinkActiveOptions]="{ exact: true }"
@@ -25,4 +33,5 @@
 			</li>
 		</ul>
 	</div>
+	<div class="nav-bar-wrapper__lang" aria-disabled="true" title="Wersja angielska — wkrótce">EN</div>
 </div>

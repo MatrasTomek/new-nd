@@ -4,4 +4,5 @@ export interface ProjectItem {
 	mobilePic: string;
 	desktopPic: string;
 	description: string;
+	liveUrl?: string;
 }

@@ -37,12 +37,12 @@ $blur-blue-background: rgba(68, 59, 246, 0.9);
 $blur-white-background: rgba(255, 255, 255, 0.3);
 
 //font-size
-$xxs-fz: 0.85rem;
-$xs-fz: 1rem;
-$s-fz: 1.2rem;
-$m-fz: 1.5rem;
-$l-fz: 1.75rem;
-$x-fz: 2rem;
+$xxs-fz: 1.05rem;
+$xs-fz: 1.2rem;
+$s-fz: 1.4rem;
+$m-fz: 1.75rem;
+$l-fz: 2rem;
+$x-fz: 2.3rem;
 
 //media-query
 $break-points: (
@@ -69,3 +69,21 @@ $navComponentHeight: 60px;
 $pagePadding: 40px;
 $primeBorderRadius: 3px;
 $ownRadius: 0.75rem;
+
+//Bold Modern Tech — dark theme tokens (redesign 2026-10)
+$darkBg: #0a0618;
+$darkBgSecondary: #120a2e;
+$darkMeshGradient: radial-gradient(circle at 20% 20%, #{$darkBgSecondary} 0%, #{$darkBg} 60%, #06040f 100%);
+
+$glassBg: rgba(255, 255, 255, 0.06);
+$glassBorder: rgba(255, 255, 255, 0.12);
+$glassBlur: 16px;
+
+$textOnDark: #f5f3ff;
+$textOnDarkMuted: #cdc6ec;
+
+$accentGradient: linear-gradient(90deg, #8b7bff, #ff6fc9);
+
+//fonts
+$headingFont: 'Kumbh Sans', sans-serif;
+$codeAccentFont: 'Fira', monospace;

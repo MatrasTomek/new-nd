@@ -1,4 +1,5 @@
 @use '../../../assets/styles/variables' as *;
+@use '../../../assets/styles/mixins' as *;
 @use 'sass:map';
 
 .contact-page-wrapper {
@@ -8,30 +9,25 @@
 	&__background {
 		width: 100%;
 		min-height: calc(100vh - 65px);
-		background-image: url('../../../assets/images/contact-page/harbour-city-3928590_640.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center;
+		background: $darkMeshGradient;
 		position: relative;
 		padding: 2rem 0; // Dodanie paddingu góra/dół
 	}
 
 	&__form {
 		width: 85%;
-		background: $blur-white-background;
-		backdrop-filter: blur(10px);
+		@include glass-panel;
 		padding: $title-padding;
-		border-radius: $ownRadius;
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 
 		.contact-form {
 			&__title {
-				color: $contentColor;
+				color: $textOnDark;
 				font-size: $m-fz;
 				font-weight: 700;
 				margin-bottom: $big-padding;
 				text-align: center;
-				font-family: 'Kumbh Sans', sans-serif;
+				font-family: $headingFont;
 			}
 
 			&__form {
@@ -45,7 +41,7 @@
 					gap: 0.5rem;
 
 					label {
-						color: $contentColor;
+						color: $textOnDark;
 						font-size: $xxs-fz;
 						font-weight: 600;
 						margin-bottom: 0.25rem;
@@ -116,7 +112,7 @@
 							cursor: pointer;
 							font-size: $xxs-fz;
 							line-height: 1.5;
-							color: $contentColor;
+							color: $textOnDark;
 
 							input[type='checkbox'] {
 								width: 18px;
@@ -167,7 +163,7 @@
 							}
 
 							a {
-								color: $coldColor;
+								color: $hightLightColor;
 								text-decoration: underline;
 								transition: color $transition;
 
@@ -237,7 +233,7 @@
 	.success-message {
 		background-color: rgba($isDoneBox, 0.1);
 		border: 2px solid $isDoneBox;
-		color: darken($isDoneBox, 20%);
+		color: #8be04e;
 		padding: 1rem;
 		border-radius: $primeBorderRadius;
 		text-align: center;

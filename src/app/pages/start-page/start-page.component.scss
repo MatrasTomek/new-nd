@@ -1,118 +1,85 @@
 @use '../../../assets/styles/variables' as *;
+@use '../../../assets/styles/mixins' as *;
 @use 'sass:map';
 
 .start-page-wrapper {
-	&__title {
-		width: 60%;
-		margin-left: -100%;
-		border: 2px solid $gradientFirst;
-		border-radius: $ownRadius;
-		padding: $title-padding;
-		transition: 1s;
+	background: $darkMeshGradient;
+	color: $textOnDark;
+	padding: 2rem 7.5% 4rem;
+	border-radius: $ownRadius;
 
-		h1 {
-			background: linear-gradient(to right, $gradientFirst, $gradientSecond, $gradientThird, $gradientFourth);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			font-size: $m-fz;
+	&__hero {
+		.eyebrow {
+			display: block;
+			font-family: $codeAccentFont;
+			color: $hightLightColor;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			font-size: $xxs-fz;
+			margin-bottom: 0.5rem;
 		}
+	}
 
-		&.float-title {
-			margin-left: 7.5% !important;
+	&__title {
+		h1 {
+			font-family: $headingFont;
+			font-weight: 700;
+			color: $textOnDark;
+			font-size: $m-fz;
 		}
 	}
 
 	&__sub-title {
-		display: flex;
-		justify-content: flex-end;
-		margin-right: -100%;
-		transition: 1s;
-
 		h3 {
-			display: inline-block;
-			width: 50%;
-			color: $coldColor;
-		}
-
-		&.float-sub-title {
-			margin-right: 7.5% !important;
+			font-family: $headingFont;
+			font-weight: 400;
+			color: $textOnDarkMuted;
 		}
 	}
 
 	&__info {
-		background-image: url('../../../assets/images//start-page/glass-sphere-1746506_1280.jpg');
-		background-position: center;
-		background-size: cover;
-		background-attachment: fixed;
-		text-align: center;
-		margin: 0 auto;
-		height: 400px;
-		display: flex;
-		align-items: flex-end;
-		border-radius: $ownRadius;
-
-		.shaddow {
-			background-color: rgba(1, 1, 1, 0.5);
-			padding: $big-padding;
-			border-bottom-right-radius: $ownRadius;
-			border-bottom-left-radius: $ownRadius;
-		}
-
 		p {
 			font-size: $xxs-fz;
-			font-weight: 700;
-			line-height: 2;
-			color: $basicBgColor;
-			letter-spacing: 1.2px;
+			line-height: 1.8;
+			color: $textOnDarkMuted;
+			max-width: 640px;
 		}
 	}
 
 	&__offer {
-		margin: 0 7.5%;
+		h3 {
+			font-family: $headingFont;
+			color: $textOnDark;
+		}
 
 		.offer {
-			&__item {
-				border-radius: $ownRadius;
-				box-shadow:
-					6px 6px 12px #b8b8b8,
-					-6px -6px 12px #ffffff;
-				transition: all 0.2s ease-in-out;
-				max-width: 420px;
-				margin: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
 
-				video {
-					border-top-right-radius: $ownRadius;
-					border-top-left-radius: $ownRadius;
+			&__item {
+				@include glass-panel;
+				padding: 1.5rem;
+				text-align: center;
+
+				.pi {
+					font-size: 2rem;
+					background: $accentGradient;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					margin-bottom: 1rem;
 				}
 
 				.content {
-					padding: 10px 20px 15px 20px;
-					background: linear-gradient(to top, $threeDFirst, $threeDSecond);
-					border-bottom-right-radius: $ownRadius;
-					border-bottom-left-radius: $ownRadius;
-					height: 210px;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-
 					h4 {
-						text-align: right;
+						font-family: $headingFont;
+						color: $textOnDark;
 						margin-bottom: 0.5rem;
-						font-family: 'Fira';
 					}
 
 					p {
-						font-size: $xxs-fz * 1.1;
-					}
-
-					a {
-						display: inline-block;
-						width: 100%;
-						text-align: right;
-						color: $gradientFirst;
-						transition: 0.3s;
-						font-size: $xxs-fz;
-						font-weight: 700;
+						font-size: $xxs-fz * 1.05;
+						color: $textOnDarkMuted;
 					}
 				}
 			}
@@ -121,203 +88,159 @@
 
 	&__trust {
 		.trust-title {
-			background-image: url('../../../assets/images//start-page/lego-708086_1280.jpg');
-			background-position: center;
-			background-size: cover;
 			text-align: center;
-			height: 100px;
-			border-radius: $ownRadius;
 
 			h2 {
-				display: inline-block;
-				width: 100%;
-				height: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				background-color: rgba(1, 1, 1, 0.4);
-				color: $basicBgColor;
-				border-radius: $ownRadius;
+				font-family: $headingFont;
+				color: $textOnDark;
 			}
 		}
 
 		.trust {
-			margin: 2rem 7.5%;
+			margin-top: 2rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
 
 			&__item {
-				border: 1px solid #c4c4cb;
-				border-radius: 0.75rem;
-				margin-bottom: 1rem;
+				@include glass-panel;
+				padding: 1.5rem;
+				text-align: center;
+
+				.pi {
+					font-size: 1.75rem;
+					color: $hightLightColor;
+					margin-bottom: 0.75rem;
+				}
+
+				span {
+					display: block;
+					font-family: $headingFont;
+					font-weight: 700;
+					color: $textOnDark;
+					margin-bottom: 0.5rem;
+				}
 
 				p {
-					font-size: $xxs-fz * 1.1;
-					font-family: 'Fira';
-					flex-basis: 50%;
-					padding: 1rem;
-
-					span {
-						font-size: $xxs-fz * 1.2;
-						font-weight: 700;
-						text-decoration: underline;
-						color: $coldColor;
-					}
-				}
-
-				.trust-image {
-					width: 50%;
-					position: relative;
-					overflow: hidden;
-					background-repeat: no-repeat;
-					background-size: cover;
-					background-position: center;
-
-					&.img-1 {
-						background-image: url('../../../assets/images/start-page/exp_1280.jpg');
-						border-top-right-radius: 0.75rem;
-						border-bottom-right-radius: 0.75rem;
-					}
-					&.img-2 {
-						background-image: url('../../../assets/images/start-page/one_1280.jpg');
-						border-top-left-radius: 0.75rem;
-						border-bottom-left-radius: 0.75rem;
-					}
-					&.img-3 {
-						background-image: url('../../../assets/images/start-page/qual_1280.jpg');
-						border-top-right-radius: 0.75rem;
-						border-bottom-right-radius: 0.75rem;
-					}
-					&.img-4 {
-						background-image: url('../../../assets/images/start-page/tech_1280.jpg');
-						border-top-left-radius: 0.75rem;
-						border-bottom-left-radius: 0.75rem;
-					}
-				}
-
-				.trust-image::after {
-					content: '';
-					position: absolute;
-					top: 0;
-					left: -150%;
-					width: 100%;
-					height: 100%;
-					background: linear-gradient(
-						120deg,
-						rgba(255, 255, 255, 0) 20%,
-						rgba(255, 255, 255, 0.8) 50%,
-						rgba(255, 255, 255, 0) 80%
-					);
-					transform: skewX(-25deg);
-					transition: left 0.5s ease-out;
-				}
-
-				.shine-effect::after {
-					left: 150%;
+					color: $textOnDarkMuted;
+					font-size: $xxs-fz * 1.05;
 				}
 			}
 		}
 	}
 
-	@media screen and (min-width: map.get($break-points, large)) {
-		&__title {
-			width: 35%;
-
-			h1 {
-				font-size: $x-fz * 1.2;
-			}
+	.process-section {
+		h3 {
+			font-family: $headingFont;
+			color: $textOnDark;
 		}
 
-		&__sub-title {
-			h3 {
-				font-size: $l-fz;
-			}
+		&__steps {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
 		}
 
-		&__info {
-			background-image: url('../../../assets/images//start-page/glass-sphere-1746506_1920.jpg');
-			height: 600px;
+		.process-step {
+			@include glass-panel;
+			padding: 1.25rem;
+			position: relative;
+
+			&__index {
+				font-family: $codeAccentFont;
+				color: $hightLightColor;
+				font-size: 0.8rem;
+			}
+
+			.pi {
+				display: block;
+				font-size: 1.5rem;
+				color: $textOnDark;
+				margin: 0.5rem 0;
+			}
+
+			h4 {
+				font-family: $headingFont;
+				color: $textOnDark;
+				margin-bottom: 0.25rem;
+			}
 
 			p {
-				font-size: $l-fz;
+				color: $textOnDarkMuted;
+				font-size: $xxs-fz;
+			}
+		}
+	}
+
+	.testimonials-section {
+		h3 {
+			font-family: $headingFont;
+			color: $textOnDark;
+		}
+
+		&__cards {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.testimonial-card {
+			@include glass-panel;
+			padding: 1.5rem;
+
+			.pi {
+				color: $hightLightColor;
+				font-size: 1.25rem;
+				margin-bottom: 0.5rem;
+			}
+
+			p {
+				color: $textOnDarkMuted;
+				font-style: italic;
+			}
+		}
+	}
+
+	@media screen and (min-width: map.get($break-points, large)) {
+		&__title h1 {
+			font-size: $x-fz * 1.2;
+		}
+
+		&__sub-title h3 {
+			font-size: $l-fz;
+		}
+
+		&__offer .offer {
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			&__item {
+				flex: 1 1 calc(25% - 1.5rem);
 			}
 		}
 
-		&__offer {
-			h3 {
-				font-size: $l-fz;
-			}
+		&__trust .trust {
+			flex-direction: row;
+			flex-wrap: wrap;
 
-			.offer {
-				display: inline-flex;
-				transition: 0.3s;
-
-				&__item {
-					width: 60%;
-
-					h4 {
-						font-size: $m-fz;
-						text-align: left;
-					}
-
-					p {
-						font-size: $s-fz * 1.1;
-					}
-					.content {
-						height: 290px;
-					}
-
-					&:hover {
-						transform: scale(1.02);
-
-						&:hover a {
-							color: $gradientFirst;
-						}
-					}
-				}
+			&__item {
+				flex: 1 1 calc(25% - 1rem);
 			}
 		}
-		&__trust {
-			.trust-title {
-				background-image: url('../../../assets/images/start-page/lego-708086_1920.jpg');
-				height: 200px;
 
-				h2 {
-					font-size: $x-fz * 1.2;
-				}
+		.process-section__steps {
+			flex-direction: row;
+
+			.process-step {
+				flex: 1;
 			}
+		}
 
-			.trust {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
+		.testimonials-section__cards {
+			flex-direction: row;
 
-				&__item {
-					flex-basis: 49%;
-					margin-bottom: 1.5rem;
-
-					p {
-						font-size: $xs-fz * 1.1;
-
-						span {
-							font-size: $s-fz * 1.2;
-						}
-					}
-
-					.trust-image {
-						&.img-1 {
-							background-image: url('../../../assets/images/start-page/exp_1280.jpg');
-						}
-						&.img-2 {
-							background-image: url('../../../assets/images/start-page/one_1280.jpg');
-							background-position-y: -100px;
-						}
-						&.img-3 {
-							background-image: url('../../../assets/images/start-page/qual_1280.jpg');
-						}
-						&.img-4 {
-							background-image: url('../../../assets/images/start-page/tech_1280.jpg');
-						}
-					}
-				}
+			.testimonial-card {
+				flex: 1;
 			}
 		}
 	}
