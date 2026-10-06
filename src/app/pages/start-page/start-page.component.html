@@ -1,26 +1,33 @@
 <div class="page-wrapper">
 	<div class="start-page-wrapper">
-		<div class="start-page-wrapper__hero">
-			<span class="eyebrow">NDSOFT Sp. z o.o.</span>
-			<div class="start-page-wrapper__title">
-				<h1>Profesjonalne Rozwiązania Webowe dla Twojego Biznesu</h1>
-			</div>
-			<div class="start-page-wrapper__sub-title mt-4">
-				<h3>Tworzymy Nowoczesne i Skuteczne Strony Internetowe</h3>
-			</div>
-			<div class="start-page-wrapper__info mt-6">
-				<p>
-					W ND specjalizujemy się w projektowaniu i wdrażaniu innowacyjnych stron internetowych, które pomagają firmom rozwijać
-					się w cyfrowym świecie. Nasze projekty łączą nowoczesny design z najnowszymi technologiami, aby zapewnić najwyższą
-					jakość i funkcjonalność.
-				</p>
+		<div class="start-page-wrapper__hero hero">
+			<app-particle-field></app-particle-field>
+			<div class="hero__content">
+				<span class="eyebrow">NDSOFT Sp. z o.o.</span>
+				<div class="start-page-wrapper__title">
+					<h1>Profesjonalne Rozwiązania Webowe dla Twojego Biznesu</h1>
+				</div>
+				<div class="start-page-wrapper__sub-title mt-4">
+					<h3>Tworzymy nowoczesne <app-typewriter [words]="heroWords"></app-typewriter></h3>
+				</div>
+				<div class="start-page-wrapper__info mt-6">
+					<p>
+						W ND specjalizujemy się w projektowaniu i wdrażaniu innowacyjnych stron internetowych, które pomagają firmom
+						rozwijać się w cyfrowym świecie. Nasze projekty łączą nowoczesny design z najnowszymi technologiami, aby
+						zapewnić najwyższą jakość i funkcjonalność.
+					</p>
+				</div>
+				<div class="hero__actions mt-5">
+					<a class="hero__cta hero__cta--primary" routerLink="/demo">Zobacz demo</a>
+					<a class="hero__cta" routerLink="/contact">Kontakt</a>
+				</div>
 			</div>
 		</div>
 
 		<div class="start-page-wrapper__offer mt-6">
 			<h3 class="mb-3">Co oferujemy?</h3>
 			<div class="offer">
-				<div class="offer__item mb-4">
+				<div class="offer__item mb-4" appReveal appTilt [revealDelay]="0">
 					<i class="pi pi-desktop"></i>
 					<div class="content">
 						<h4>Szablony Stron Internetowych</h4>
@@ -30,7 +37,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="offer__item mb-4">
+				<div class="offer__item mb-4" appReveal appTilt [revealDelay]="80">
 					<i class="pi pi-code"></i>
 					<div class="content">
 						<h4>Dedykowane Strony Internetowe</h4>
@@ -40,7 +47,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="offer__item mb-4">
+				<div class="offer__item mb-4" appReveal appTilt [revealDelay]="160">
 					<i class="pi pi-sitemap"></i>
 					<div class="content">
 						<h4>Aplikacje Webowe</h4>
@@ -50,7 +57,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="offer__item mb-4">
+				<div class="offer__item mb-4" appReveal appTilt [revealDelay]="240">
 					<i class="pi pi-shield"></i>
 					<div class="content">
 						<h4>Opieka i Wsparcie Techniczne</h4>
@@ -63,25 +70,35 @@
 			</div>
 		</div>
 
+		<div class="stats-slot mt-6">
+			@defer (on viewport) {
+				<app-stats-section></app-stats-section>
+			} @placeholder {
+				<div class="stats-placeholder" aria-hidden="true"></div>
+			} @error {
+				<p class="stats-error">Nie udało się załadować wykresów.</p>
+			}
+		</div>
+
 		<div class="start-page-wrapper__trust mt-4">
 			<div class="trust-title mb-3 mt-3"><h2>Dlaczego Warto Nam Zaufać?</h2></div>
 			<div class="trust">
-				<div class="trust__item">
+				<div class="trust__item" appReveal appTilt [tiltMax]="4" [revealDelay]="0">
 					<i class="pi pi-briefcase"></i>
 					<span>Doświadczenie</span>
 					<p>Lata pracy przy projektach dla różnych branż pozwoliły nam zdobyć szeroką wiedzę i umiejętności.</p>
 				</div>
-				<div class="trust__item">
+				<div class="trust__item" appReveal appTilt [tiltMax]="4" [revealDelay]="80">
 					<i class="pi pi-users"></i>
 					<span>Indywidualne Podejście</span>
 					<p>Każdy klient jest dla nas unikalny, dlatego dostosowujemy nasze rozwiązania do Twoich potrzeb.</p>
 				</div>
-				<div class="trust__item">
+				<div class="trust__item" appReveal appTilt [tiltMax]="4" [revealDelay]="160">
 					<i class="pi pi-verified"></i>
 					<span>Najwyższa Jakość</span>
 					<p>Dbamy o estetykę, funkcjonalność i wydajność każdego projektu.</p>
 				</div>
-				<div class="trust__item">
+				<div class="trust__item" appReveal appTilt [tiltMax]="4" [revealDelay]="240">
 					<i class="pi pi-bolt"></i>
 					<span>Nowoczesne Technologie</span>
 					<p>Stosujemy sprawdzone narzędzia i trendy, aby dostarczać najlepsze rozwiązania.</p>
@@ -91,8 +108,13 @@
 
 		<div class="process-section mt-6">
 			<h3 class="mb-3">Jak pracujemy</h3>
-			<div class="process-section__steps">
-				<div class="process-step" *ngFor="let step of processSteps; let i = index">
+			<div class="process-section__steps" appReveal>
+				<div
+					class="process-step"
+					*ngFor="let step of processSteps; let i = index"
+					appReveal
+					[revealDelay]="300 + i * 200"
+				>
 					<span class="process-step__index">{{ i + 1 }}</span>
 					<i [class]="step.icon"></i>
 					<h4>{{ step.label }}</h4>
@@ -101,10 +123,23 @@
 			</div>
 		</div>
 
+		<div class="teaser-slot mt-6">
+			@defer (on viewport) {
+				<app-demo-teaser></app-demo-teaser>
+			} @placeholder {
+				<div class="teaser-placeholder" aria-hidden="true"></div>
+			}
+		</div>
+
 		<div class="testimonials-section mt-6">
 			<h3 class="mb-3">Referencje klientów</h3>
 			<div class="testimonials-section__cards">
-				<div class="testimonial-card flex flex-column" *ngFor="let item of testimonialPlaceholders">
+				<div
+					class="testimonial-card flex flex-column"
+					*ngFor="let item of testimonialPlaceholders; let i = index"
+					appReveal
+					[revealDelay]="i * 80"
+				>
 					<i class="pi pi-thumbs-up-fill"></i>
 					<p>{{ item.text }}</p>
 					<span class="mt-3">{{ item.author }}</span>

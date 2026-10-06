@@ -1,0 +1,124 @@
+@use '../../../../assets/styles/variables' as *;
+@use '../../../../assets/styles/mixins' as *;
+@use 'sass:map';
+
+:host {
+	display: block;
+	min-height: var(--stats-min-height, 1150px);
+}
+
+.stats {
+	h3 {
+		font-family: $headingFont;
+		color: $textOnDark;
+	}
+
+	&__counters {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	&__counter {
+		@include glass-panel;
+		padding: 1.25rem;
+		text-align: center;
+	}
+
+	&__value {
+		display: block;
+		font-family: $headingFont;
+		font-size: $x-fz;
+		font-weight: 700;
+		background: $accentGradient;
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	&__label {
+		color: $textOnDarkMuted;
+		font-size: 0.9rem;
+	}
+
+	&__charts {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 1rem;
+	}
+
+	&__chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 0.75rem;
+
+		button {
+			min-height: 36px;
+			padding: 0.25rem 0.75rem;
+			border: 1px solid $glassBorder;
+			border-radius: 999px;
+			background: $glassBg;
+			color: $textOnDark;
+			font: inherit;
+			font-size: 0.85rem;
+			cursor: pointer;
+
+			&.is-active {
+				background: $accentGradient;
+				color: $darkBg;
+				border-color: transparent;
+			}
+
+			&:focus-visible {
+				outline: 2px solid #ff6fc9;
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	&__other {
+		display: inline-flex;
+		align-items: center;
+		min-height: 36px;
+		padding: 0.25rem 0.75rem;
+		font-size: 0.85rem;
+		color: $textOnDarkMuted;
+	}
+
+	&__swatch {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin-right: 0.35rem;
+		border-radius: 2px;
+		vertical-align: -1px;
+	}
+
+	&__projects {
+		margin: 0.75rem 0 0;
+		padding-left: 1.25rem;
+
+		a {
+			color: $textOnDark;
+			text-decoration: underline;
+		}
+	}
+
+	&__caption {
+		margin: 0.75rem 0 0;
+		font-size: 0.8rem;
+		color: $textOnDarkMuted;
+	}
+}
+
+@media screen and (min-width: map.get($break-points, large)) {
+	:host {
+		--stats-min-height: 640px;
+	}
+
+	.stats__charts {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}

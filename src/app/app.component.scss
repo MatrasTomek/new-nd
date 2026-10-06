@@ -1,0 +1,6 @@
+// Rezerwuje wysokość ekranu, zanim załaduje się leniwa trasa (stopka nie skacze w dół),
+// a flow-root zatrzymuje margines .page-wrapper wewnątrz <main>, więc <body> się nie przesuwa (CLS).
+.app-main {
+	display: flow-root;
+	min-height: 100vh;
+}

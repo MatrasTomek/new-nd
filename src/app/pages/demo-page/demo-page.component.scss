@@ -1,0 +1,274 @@
+@use '../../../assets/styles/variables' as *;
+@use '../../../assets/styles/mixins' as *;
+@use 'sass:map';
+
+.demo-page {
+	background: $darkMeshGradient;
+	color: $textOnDark;
+	padding: 2rem 5% 4rem;
+	border-radius: $ownRadius;
+
+	&__header {
+		max-width: 760px;
+
+		h1 {
+			font-family: $headingFont;
+			font-size: $m-fz;
+			margin: 0.75rem 0;
+		}
+
+		p {
+			color: $textOnDarkMuted;
+			line-height: 1.7;
+		}
+
+		a {
+			color: #ff6fc9;
+			text-decoration: underline;
+		}
+	}
+
+	&__badge {
+		display: inline-block;
+		padding: 0.25rem 0.75rem;
+		border: 1px solid $glassBorder;
+		border-radius: 999px;
+		font-family: $codeAccentFont;
+		font-size: 0.8rem;
+		color: $textOnDarkMuted;
+	}
+}
+
+%control-button {
+	min-height: 44px;
+	padding: 0.5rem 1rem;
+	border: 1px solid $glassBorder;
+	border-radius: 999px;
+	background: $glassBg;
+	color: $textOnDark;
+	font: inherit;
+	cursor: pointer;
+
+	&.is-active {
+		background: $accentGradient;
+		color: $darkBg;
+		border-color: transparent;
+	}
+
+	&:focus-visible {
+		outline: 2px solid #ff6fc9;
+		outline-offset: 2px;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+.demo-controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 1.5rem 0;
+
+	&__range {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	button {
+		@extend %control-button;
+	}
+
+	&__dot {
+		display: inline-block;
+		width: 8px;
+		height: 8px;
+		margin-right: 0.25rem;
+		border-radius: 50%;
+		background: $textOnDarkMuted;
+	}
+
+	&__live.is-active &__dot {
+		background: #0ca30c;
+		box-shadow: 0 0 8px #0ca30c;
+	}
+}
+
+.kpis {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.kpi {
+	@include glass-panel;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 1rem 1.25rem;
+	min-width: 0;
+
+	&__label {
+		color: $textOnDarkMuted;
+		font-size: 0.9rem;
+	}
+
+	&__value {
+		font-family: $headingFont;
+		font-size: $l-fz;
+		font-weight: 700;
+	}
+
+	&__change {
+		font-size: 0.85rem;
+		color: $textOnDarkMuted;
+	}
+}
+
+.demo-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1rem;
+}
+
+.status-filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+
+	button {
+		@extend %control-button;
+		min-height: 36px;
+		padding: 0.25rem 0.75rem;
+		font-size: 0.85rem;
+	}
+}
+
+.orders-table {
+	@include glass-panel;
+	padding: 1.25rem;
+	min-width: 0;
+
+	h2 {
+		font-family: $headingFont;
+		font-size: 1.1rem;
+		margin: 0 0 0.75rem;
+	}
+
+	&__filter {
+		color: #ff6fc9;
+		font-weight: 400;
+	}
+
+	&__scroll {
+		overflow-x: auto;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+
+	th,
+	td {
+		padding: 0.6rem 0.5rem;
+		text-align: left;
+		border-bottom: 1px solid $glassBorder;
+		white-space: nowrap;
+	}
+
+	th button {
+		background: none;
+		border: 0;
+		padding: 0;
+		color: $textOnDarkMuted;
+		font: inherit;
+		cursor: pointer;
+		text-decoration: underline dotted;
+	}
+
+	.num {
+		text-align: right;
+	}
+
+	&__empty {
+		text-align: center;
+		color: $textOnDarkMuted;
+	}
+}
+
+.badge {
+	padding: 0.15rem 0.6rem;
+	border-radius: 999px;
+	font-size: 0.8rem;
+	color: $darkBg;
+
+	&--new {
+		background: #8b7bff;
+	}
+	&--processing {
+		background: #e0479e;
+	}
+	&--shipped {
+		background: #4a8fe0;
+	}
+	&--delivered {
+		background: #c08419;
+	}
+}
+
+.demo-skeleton {
+	@include glass-panel;
+	min-height: 900px;
+}
+
+.demo-error {
+	@include glass-panel;
+	padding: 2rem;
+	text-align: center;
+
+	button {
+		@extend %control-button;
+		margin-top: 1rem;
+	}
+}
+
+@media screen and (min-width: map.get($break-points, small)) {
+	.kpis {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.demo-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+
+		&__wide,
+		&__full {
+			grid-column: 1 / -1;
+		}
+	}
+}
+
+@media screen and (min-width: map.get($break-points, large)) {
+	.demo-page__header h1 {
+		font-size: $x-fz;
+	}
+
+	.kpis {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.demo-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+
+		&__wide,
+		&__stock {
+			grid-column: span 2;
+		}
+	}
+}

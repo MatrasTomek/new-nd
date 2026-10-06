@@ -1,0 +1,150 @@
+<div class="page-wrapper">
+	<div class="demo-page">
+		<header class="demo-page__header" appReveal>
+			<span class="demo-page__badge">Dane przykładowe, generowane w Twojej przeglądarce</span>
+			<h1>Demo: panel zarządzania firmą</h1>
+			<p>
+				Tak może wyglądać aplikacja dla Twojej firmy: zamówienia, faktury i magazyn w jednym miejscu, z filtrami i danymi
+				odświeżanymi na żywo. <a routerLink="/contact">Porozmawiajmy o Twoim projekcie</a>.
+			</p>
+		</header>
+
+		<div class="demo-controls" role="toolbar" aria-label="Ustawienia panelu">
+			<div class="demo-controls__range" role="group" aria-label="Zakres danych">
+				@for (r of ranges; track r) {
+					<button type="button" [class.is-active]="range() === r" [attr.aria-pressed]="range() === r" (click)="setRange(r)">
+						{{ rangeLabels[r] }}
+					</button>
+				}
+			</div>
+			<button
+				type="button"
+				class="demo-controls__live"
+				[class.is-active]="live()"
+				[attr.aria-pressed]="live()"
+				[disabled]="!liveAvailable()"
+				[title]="liveAvailable() ? '' : 'Wyłączone — w systemie włączono ograniczenie ruchu'"
+				(click)="toggleLive()"
+			>
+				<span class="demo-controls__dot" aria-hidden="true"></span> Na żywo
+			</button>
+			<button type="button" class="demo-controls__random" (click)="randomize()">
+				<i class="pi pi-refresh" aria-hidden="true"></i> Losuj nowe dane
+			</button>
+		</div>
+
+		@defer (on immediate) {
+			<div class="kpis">
+				@for (tile of kpiTiles(); track tile.label) {
+					<div class="kpi">
+						<span class="kpi__label">{{ tile.label }}</span>
+						<span class="kpi__value" [appCountUp]="tile.value" [countUpSuffix]="tile.suffix" [countUpDuration]="600"></span>
+						@if (tile.change !== null) {
+							<span class="kpi__change">
+								<span aria-hidden="true">{{ tile.change >= 0 ? '▲' : '▼' }}</span>
+								{{ tile.change > 0 ? '+' : '' }}{{ tile.change }}% vs poprzedni okres
+							</span>
+						}
+						<app-chart-card variant="bare" [options]="tile.spark" [height]="48" [ariaLabel]="'Trend: ' + tile.label"></app-chart-card>
+					</div>
+				}
+			</div>
+
+			<div class="demo-grid">
+				<app-chart-card
+					class="demo-grid__wide"
+					title="Przychód i zamówienia"
+					ariaLabel="Dwa wykresy ze wspólną osią czasu: przychód (linia) i liczba zamówień (słupki)"
+					[options]="revenueChart()"
+					[titleLevel]="2"
+					[height]="380"
+				></app-chart-card>
+
+				<app-chart-card
+					title="Status ostatnich 40 zamówień"
+					ariaLabel="Wykres pierścieniowy statusów zamówień"
+					[options]="statusChart()"
+					[titleLevel]="2"
+					[height]="280"
+					(chartClick)="onStatusChartClick($event)"
+				>
+					<div class="status-filter" role="group" aria-label="Filtruj tabelę po statusie">
+						@for (s of statuses; track s) {
+							<button
+								type="button"
+								[class.is-active]="statusFilter() === s"
+								[attr.aria-pressed]="statusFilter() === s"
+								(click)="toggleStatus(s)"
+							>
+								{{ statusLabels[s] }} ({{ statusCounts()[s] }})
+							</button>
+						}
+					</div>
+				</app-chart-card>
+
+				<app-chart-card
+					title="Faktury"
+					ariaLabel="Słupki skumulowane: faktury opłacone, oczekujące i przeterminowane"
+					[options]="invoicesChart()"
+					[titleLevel]="2"
+					[height]="300"
+				></app-chart-card>
+
+				<app-chart-card
+					class="demo-grid__stock"
+					title="Stany magazynowe"
+					ariaLabel="Poziome słupki stanów magazynowych z zaznaczonym stanem minimalnym"
+					[options]="stockChart()"
+					[titleLevel]="2"
+					[height]="360"
+				></app-chart-card>
+
+				<section class="orders-table demo-grid__full" aria-labelledby="orders-title">
+					<h2 id="orders-title">
+						Ostatnie zamówienia
+						@if (statusFilter(); as s) {
+							<span class="orders-table__filter">— {{ statusLabels[s] }}</span>
+						}
+					</h2>
+					<div class="orders-table__scroll">
+						<table>
+							<thead>
+								<tr>
+									<th scope="col">Numer</th>
+									<th scope="col"><button type="button" data-sort="customer" (click)="sortBy('customer')">Klient</button></th>
+									<th scope="col"><button type="button" data-sort="date" (click)="sortBy('date')">Data</button></th>
+									<th scope="col" class="num"><button type="button" data-sort="amount" (click)="sortBy('amount')">Kwota</button></th>
+									<th scope="col">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								@for (order of visibleOrders(); track order.id) {
+									<tr>
+										<td>{{ order.id }}</td>
+										<td>{{ order.customer }}</td>
+										<td>{{ order.date }}</td>
+										<td class="num">{{ order.amount }} zł</td>
+										<td><span class="badge badge--{{ order.status }}">{{ statusLabels[order.status] }}</span></td>
+									</tr>
+								} @empty {
+									<tr>
+										<td colspan="5" class="orders-table__empty">Brak zamówień o tym statusie.</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		} @placeholder {
+			<div class="demo-skeleton" aria-hidden="true"></div>
+		} @loading (minimum 200ms) {
+			<div class="demo-skeleton" aria-busy="true"></div>
+		} @error {
+			<div class="demo-error" role="alert">
+				<p>Nie udało się załadować wykresów. Sprawdź połączenie z internetem.</p>
+				<button type="button" (click)="reload()">Spróbuj ponownie</button>
+			</div>
+		}
+	</div>
+</div>
