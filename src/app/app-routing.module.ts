@@ -21,6 +21,10 @@ const routes: Routes = [
 		component: ProjectsPageComponent,
 	},
 	{
+		path: 'demo',
+		loadComponent: () => import('./pages/demo-page/demo-page.component').then((m) => m.DemoPageComponent),
+	},
+	{
 		path: 'contact',
 		component: ContactPagesComponent,
 	},

@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { RevealDirective } from '../../shared/motion/reveal.directive';
+import { TiltDirective } from '../../shared/motion/tilt.directive';
+import { TypewriterComponent } from '../../shared/motion/typewriter.component';
+import { ParticleFieldComponent } from '../../shared/motion/particle-field.component';
+import { StatsSectionComponent } from './stats-section/stats-section.component';
+import { DemoTeaserComponent } from './demo-teaser/demo-teaser.component';
 
 interface ProcessStep {
 	label: string;
@@ -10,9 +18,12 @@ interface ProcessStep {
 	selector: 'app-start-page',
 	templateUrl: './start-page.component.html',
 	styleUrls: ['./start-page.component.scss'],
-	standalone: false,
+	standalone: true,
+	imports: [NgFor, RouterLink, RevealDirective, TiltDirective, TypewriterComponent, ParticleFieldComponent, StatsSectionComponent, DemoTeaserComponent],
 })
 export class StartPageComponent {
+	heroWords = ['strony internetowe', 'aplikacje webowe', 'dashboardy', 'systemy dla firm'];
+
 	processSteps: ProcessStep[] = [
 		{ label: 'Brief', description: 'Poznajemy Twój biznes, cele i odbiorców.', icon: 'pi pi-comments' },
 		{ label: 'Projekt', description: 'Przygotowujemy koncepcję wizualną i zakres funkcjonalny.', icon: 'pi pi-pencil' },

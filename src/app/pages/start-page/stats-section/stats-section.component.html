@@ -1,0 +1,78 @@
+<section class="stats" appReveal aria-labelledby="stats-title">
+	<h3 id="stats-title" class="mb-3">W liczbach</h3>
+
+	<div class="stats__counters">
+		<div class="stats__counter">
+			<span class="stats__value" [appCountUp]="projectCount"></span>
+			<span class="stats__label">zrealizowanych projektów</span>
+		</div>
+		<div class="stats__counter">
+			<span class="stats__value" [appCountUp]="industries.length"></span>
+			<span class="stats__label">branż naszych klientów</span>
+		</div>
+		<div class="stats__counter">
+			<span class="stats__value" [appCountUp]="average.seo"></span>
+			<span class="stats__label">średni wynik SEO naszych stron (Lighthouse)</span>
+		</div>
+	</div>
+
+	<div class="stats__charts">
+		<app-chart-card
+			title="Branże naszych klientów"
+			ariaLabel="Wykres pierścieniowy: liczba projektów w poszczególnych branżach"
+			[options]="industryOptions()"
+			[height]="280"
+			(chartClick)="selectIndustry($event.name)"
+		>
+			<div class="stats__chips stats__chips--industries" role="group" aria-label="Wybierz branżę">
+				@for (group of industries; track group.name) {
+					<button
+						type="button"
+						[class.is-active]="selectedIndustry() === group.name"
+						[attr.aria-pressed]="selectedIndustry() === group.name"
+						(click)="selectIndustry(group.name)"
+					>
+						<span class="stats__swatch" aria-hidden="true" [style.background]="palette[$index]"></span>
+						{{ group.name }} ({{ group.projects.length }})
+					</button>
+				}
+			</div>
+			@if (selectedProjects().length) {
+				<ul class="stats__projects" aria-live="polite">
+					@for (project of selectedProjects(); track project.id) {
+						<li><a routerLink="/projects">{{ project.label }}</a></li>
+					}
+				</ul>
+			}
+		</app-chart-card>
+
+		<app-chart-card
+			title="Wydajność naszych realizacji"
+			ariaLabel="Wskaźniki Lighthouse: wydajność, dostępność, dobre praktyki i SEO"
+			[options]="gaugeOptions()"
+			[height]="340"
+		>
+			<div class="stats__chips stats__chips--sites" role="group" aria-label="Wybierz stronę">
+				<button
+					type="button"
+					[class.is-active]="selectedSite() === null"
+					[attr.aria-pressed]="selectedSite() === null"
+					(click)="selectSite(null)"
+				>
+					Średnia
+				</button>
+				@for (site of report.sites; track site.name) {
+					<button
+						type="button"
+						[class.is-active]="selectedSite() === site.name"
+						[attr.aria-pressed]="selectedSite() === site.name"
+						(click)="selectSite(site.name)"
+					>
+						{{ site.name }}
+					</button>
+				}
+			</div>
+			<p class="stats__caption">Pomiar: {{ report.tool }}, urządzenia mobilne, {{ report.measuredAt }}</p>
+		</app-chart-card>
+	</div>
+</section>
