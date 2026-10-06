@@ -1,10 +1,21 @@
 export const ND_DARK_THEME_NAME = 'nd-dark';
 
 // Paleta kategoryczna zwalidowana skillem dataviz (validate_palette.js, tryb dark, tło #120a2e): wszystkie testy PASS.
-export const ND_CHART_PALETTE: readonly string[] = ['#8b7bff', '#e0479e', '#4a8fe0', '#c08419', '#169c8c', '#c46a3a'];
+export const ND_CHART_PALETTE: readonly string[] = [
+	'#8b7bff',
+	'#e0479e',
+	'#4a8fe0',
+	'#c08419',
+	'#169c8c',
+	'#c46a3a',
+	'#b05cc9',
+	'#6f9a2a',
+];
 // Kolory statusów — zarezerwowane, nigdy nie używane jako kolejna seria.
 export const ND_STATUS = { good: '#0ca30c', warning: '#fab219', critical: '#d03b3b' } as const;
 export const ND_CHART_ALERT = ND_STATUS.critical;
+// Neutralny kolor kategorii zbiorczej „Pozostałe” (≥ 3:1 na tle karty, odróżnialny od sąsiednich serii).
+export const ND_CHART_OTHER = '#6e6888';
 export const ND_CHART_TEXT = '#cdc6ec';
 export const ND_CHART_TEXT_STRONG = '#f5f3ff';
 

@@ -1,7 +1,9 @@
 import type { EChartsCoreOption } from 'echarts/core';
 import { IndustryGroup } from '../../../../assets/content/stats/industries';
 import { LighthouseScores } from '../../../../assets/content/stats/lighthouse';
-import { ND_CHART_TEXT, ND_CHART_TEXT_STRONG, ND_STATUS } from '../../../shared/charts/nd-dark.theme';
+import { ND_CHART_OTHER, ND_CHART_TEXT, ND_CHART_TEXT_STRONG, ND_STATUS } from '../../../shared/charts/nd-dark.theme';
+
+export const OTHER_INDUSTRY_LABEL = 'Pozostałe';
 
 const GAUGES: Array<{ key: keyof LighthouseScores; name: string; center: [string, string] }> = [
 	{ key: 'performance', name: 'Wydajność', center: ['25%', '27%'] },
@@ -28,7 +30,7 @@ export function scoreColor(score: number): string {
 	return ND_STATUS.critical;
 }
 
-export function industryChartOptions(groups: IndustryGroup[], selected: string | null): EChartsCoreOption {
+export function industryChartOptions(groups: IndustryGroup[], selected: string | null, others = 0): EChartsCoreOption {
 	return {
 		tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
 		series: [
@@ -41,11 +43,24 @@ export function industryChartOptions(groups: IndustryGroup[], selected: string |
 				itemStyle: { borderRadius: 4 },
 				label: { show: false },
 				emphasis: { label: { show: true, fontSize: 14, color: ND_CHART_TEXT_STRONG, formatter: '{b}\n{c}' } },
-				data: groups.map((group) => ({
-					name: group.name,
-					value: group.projects.length,
-					selected: group.name === selected,
-				})),
+				data: [
+					...groups.map((group) => ({
+						name: group.name,
+						value: group.projects.length,
+						selected: group.name === selected,
+					})),
+					...(others > 0
+						? [
+								{
+									name: OTHER_INDUSTRY_LABEL,
+									value: others,
+									selected: false,
+									select: { disabled: true },
+									itemStyle: { color: ND_CHART_OTHER },
+								},
+							]
+						: []),
+				],
 			},
 		],
 	};

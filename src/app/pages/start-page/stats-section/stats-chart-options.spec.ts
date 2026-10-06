@@ -1,6 +1,6 @@
 import { averageScores, industryChartOptions, lighthouseGaugeOptions, scoreColor } from './stats-chart-options';
 import { IndustryGroup } from '../../../../assets/content/stats/industries';
-import { ND_STATUS } from '../../../shared/charts/nd-dark.theme';
+import { ND_CHART_OTHER, ND_STATUS } from '../../../shared/charts/nd-dark.theme';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const groups: IndustryGroup[] = [
@@ -35,6 +35,20 @@ describe('stats-chart-options', () => {
 		]);
 		expect(data[1].selected).toBeTrue();
 		expect(data[0].selected).toBeFalse();
+	});
+
+	it('industryChartOptions adds a neutral "Pozostałe" slice for projects outside the listed industries', () => {
+		const o = industryChartOptions(groups, null, 5) as any;
+		const last = o.series[0].data.at(-1);
+		expect(last.name).toBe('Pozostałe');
+		expect(last.value).toBe(5);
+		expect(last.itemStyle.color).toBe(ND_CHART_OTHER);
+		expect(o.series[0].data.length).toBe(3);
+	});
+
+	it('industryChartOptions omits the "Pozostałe" slice when there are no other projects', () => {
+		const o = industryChartOptions(groups, null, 0) as any;
+		expect(o.series[0].data.map((d: any) => d.name)).toEqual(['A', 'B']);
 	});
 
 	it('lighthouseGaugeOptions keeps the bottom gauge titles inside the chart', () => {

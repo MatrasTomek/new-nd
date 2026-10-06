@@ -1,10 +1,10 @@
 import { ND_CHART_ALERT, ND_CHART_PALETTE, ND_DARK_THEME, ND_DARK_THEME_NAME } from './nd-dark.theme';
 
 describe('nd-dark theme', () => {
-	it('defines a six-colour categorical palette of hex colours', () => {
-		expect(ND_CHART_PALETTE.length).toBe(6);
+	it('defines an eight-colour categorical palette of distinct hex colours', () => {
+		expect(ND_CHART_PALETTE.length).toBe(8);
 		ND_CHART_PALETTE.forEach((color) => expect(color).toMatch(/^#[0-9a-f]{6}$/i));
-		expect(new Set(ND_CHART_PALETTE).size).toBe(6);
+		expect(new Set(ND_CHART_PALETTE).size).toBe(8);
 	});
 
 	it('uses the palette, a transparent background and a distinct alert colour', () => {

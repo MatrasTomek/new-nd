@@ -4,7 +4,7 @@
 	<div class="stats__counters">
 		<div class="stats__counter">
 			<span class="stats__value" [appCountUp]="projectCount"></span>
-			<span class="stats__label">zrealizowanych projektów</span>
+			<span class="stats__label">zrealizowane projekty</span>
 		</div>
 		<div class="stats__counter">
 			<span class="stats__value" [appCountUp]="industries.length"></span>
@@ -22,7 +22,7 @@
 			ariaLabel="Wykres pierścieniowy: liczba projektów w poszczególnych branżach"
 			[options]="industryOptions()"
 			[height]="280"
-			(chartClick)="selectIndustry($event.name)"
+			(chartClick)="onIndustryClick($event.name)"
 		>
 			<div class="stats__chips stats__chips--industries" role="group" aria-label="Wybierz branżę">
 				@for (group of industries; track group.name) {
@@ -36,11 +36,19 @@
 						{{ group.name }} ({{ group.projects.length }})
 					</button>
 				}
+				@if (otherCount > 0) {
+					<span class="stats__other">
+						<span class="stats__swatch" aria-hidden="true" [style.background]="otherColor"></span>
+						{{ otherLabel }} ({{ otherCount }})
+					</span>
+				}
 			</div>
 			@if (selectedProjects().length) {
 				<ul class="stats__projects" aria-live="polite">
 					@for (project of selectedProjects(); track project.id) {
-						<li><a routerLink="/projects">{{ project.label }}</a></li>
+						<li>
+							<a routerLink="/projects">{{ project.label }}</a>
+						</li>
 					}
 				</ul>
 			}
@@ -72,7 +80,8 @@
 					</button>
 				}
 			</div>
-			<p class="stats__caption">Pomiar: {{ report.tool }}, urządzenia mobilne, {{ report.measuredAt }}</p>
+			<p class="stats__caption">Pomiar: {{ report.tool }}, urządzenia mobilne 4G, {{ report.measuredAt }}</p>
 		</app-chart-card>
 	</div>
 </section>
+

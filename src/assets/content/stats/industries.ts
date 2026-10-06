@@ -30,11 +30,18 @@ export const industries: IndustryGroup[] = [
 		projects: [
 			{ id: 'Tlog', label: 'Twoja Logistyka' },
 			{ id: 'Omega', label: 'OMEGA Dulowski' },
+			{ id: 'TransLog', label: 'Transport i logistyka' },
+			{ id: 'MexemTrans', label: 'Mexem' },
+			{ id: 'MekTrans', label: 'MekTrans' },
+			{ id: 'uaTrans', label: 'Ukrainian Transport UAB' },
 		],
 	},
 	{
 		name: 'Organizacje i parafie',
-		projects: [{ id: 'Parish', label: 'Parafia Mokrzyska' }],
+		projects: [
+			{ id: 'Parish', label: 'Parafia Mokrzyska' },
+			{ id: 'Parish2', label: 'Parafia Ryglice' },
+		],
 	},
 	{
 		name: 'Aplikacje biznesowe',
@@ -43,6 +50,8 @@ export const industries: IndustryGroup[] = [
 			{ id: 'Invoices', label: 'System faktur' },
 			{ id: 'Wareh', label: 'System magazynowy' },
 			{ id: 'Charts', label: 'Panel raportowy' },
+			{ id: 'OdresOnline', label: 'System sprzedaży online' },
+			{ id: 'TSLM', label: 'System Zarządzania Zakupami transportowymi' },
 		],
 	},
 	{
@@ -50,6 +59,26 @@ export const industries: IndustryGroup[] = [
 		projects: [
 			{ id: 'PostAI', label: 'PostAI' },
 			{ id: 'OldNd', label: 'Poprzednia strona ND' },
+			{ id: 'shortLink', label: 'Short Link system' },
+			{ id: 'jobscraper', label: 'Job Scraper' },
+			{ id: 'web-offer-search', label: 'Web Offer Search' },
+			{ id: 'transport-news-search', label: 'Transport News Search' },
+			{ id: 'nd-soft-template', label: 'ND Soft Template' },
+		],
+	},
+	{
+		name: 'Szkoły językowe',
+		projects: [
+			{ id: 'EN4You', label: 'EN4You' },
+			{ id: 'EasyLanguage', label: 'Easy language school' },
+		],
+	},
+	{
+		name: 'Blogi branżowe',
+		projects: [
+			{ id: 'Blog1', label: 'Praca dla kierowcy' },
+			{ id: 'Blog2', label: 'Transport News' },
 		],
 	},
 ];
+

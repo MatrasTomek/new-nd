@@ -5,6 +5,7 @@ import { installMockIntersectionObserver, provideMotionStub } from '../../../sha
 import { lighthouseReport } from '../../../../assets/content/stats/lighthouse';
 import { averageScores } from './stats-chart-options';
 import { ND_CHART_PALETTE } from '../../../shared/charts/nd-dark.theme';
+import { industries } from '../../../../assets/content/stats/industries';
 
 describe('StatsSectionComponent', () => {
 	let fixture: ComponentFixture<StatsSectionComponent>;
@@ -27,8 +28,10 @@ describe('StatsSectionComponent', () => {
 
 	it('shows project, industry and average SEO counters', () => {
 		const values = Array.from(el().querySelectorAll('.stats__value')).map((v) => v.textContent?.trim());
-		expect(values[0]).toBe('14');
-		expect(values[1]).toBe('6');
+		// Decyzja właściciela: licznik dolicza 3 niewymienione projekty na każdą branżę.
+		const projectCount = industries.reduce((sum, group) => sum + group.projects.length + 3, 0);
+		expect(values[0]).toBe(String(projectCount));
+		expect(values[1]).toBe(String(industries.length));
 		expect(values[2]).toBe(String(averageScores(lighthouseReport.sites).seo));
 	});
 
@@ -37,14 +40,32 @@ describe('StatsSectionComponent', () => {
 		chip.click();
 		fixture.detectChanges();
 		expect(chip.getAttribute('aria-pressed')).toBe('true');
-		const items = Array.from(el().querySelectorAll('.stats__projects a')).map((a) => a.textContent?.trim());
-		expect(items).toEqual(['Twoja Logistyka', 'OMEGA Dulowski']);
+		const group = industries.find((g) => g.name === 'Logistyka i transport')!;
+		const items = Array.from(el().querySelectorAll('.stats__projects li')).map((li) => li.textContent?.trim());
+		expect(items).toEqual(group.projects.map((p) => p.label));
 		expect(el().querySelector('.stats__projects a')?.getAttribute('href')).toBe('/projects');
 	});
 
+	it('makes the donut add up to the project counter by including "Pozostałe"', () => {
+		const options = fixture.componentInstance.industryOptions() as unknown as { series: Array<{ data: Array<{ name: string; value: number }> }> };
+		const data = options.series[0].data;
+		const total = data.reduce((sum, d) => sum + d.value, 0);
+		expect(total).toBe(fixture.componentInstance.projectCount);
+		expect(data.at(-1)?.name).toBe('Pozostałe');
+		expect(el().querySelector('.stats__other')?.textContent).toContain(`Pozostałe (${fixture.componentInstance.otherCount})`);
+	});
+
+	it('ignores clicks on the "Pozostałe" slice (no project list to show)', () => {
+		fixture.componentInstance.onIndustryClick('Pozostałe');
+		fixture.detectChanges();
+		expect(fixture.componentInstance.selectedIndustry()).toBeNull();
+		fixture.componentInstance.onIndustryClick('Edukacja i sport');
+		expect(fixture.componentInstance.selectedIndustry()).toBe('Edukacja i sport');
+	});
+
 	it('ties each industry chip to its donut slice with a colour swatch', () => {
-		const swatches = Array.from(el().querySelectorAll<HTMLElement>('.stats__chips--industries .stats__swatch'));
-		expect(swatches.length).toBe(6);
+		const swatches = Array.from(el().querySelectorAll<HTMLElement>('.stats__chips--industries button .stats__swatch'));
+		expect(swatches.length).toBe(industries.length);
 		const probe = document.createElement('span');
 		swatches.forEach((swatch, i) => {
 			probe.style.background = ND_CHART_PALETTE[i];
